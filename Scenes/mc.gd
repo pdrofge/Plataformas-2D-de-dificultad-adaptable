@@ -28,7 +28,7 @@ var hitting_wr:bool = false
 func _ready():
 	$WJ.target_position.x = rcDim
 	$sliding_time.wait_time = sliding_t
-
+	
 func _physics_process(delta: float) -> void:
 	# Add gravity
 	if is_on_floor():

@@ -491,6 +491,10 @@ frame = 5
 frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = -350
+limit_right = 1000
+limit_bottom = 648
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
