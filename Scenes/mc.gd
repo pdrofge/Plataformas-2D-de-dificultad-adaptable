@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -400.0 * 0.95
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var allow_animation:bool = false
@@ -20,7 +20,7 @@ var dash: bool = false
 var count_dashes = 0
 var max_dashes_in_air = 1
 var dash_end:bool = false
-var dash_boost = 1.4
+var dash_boost = 1.25
 var hitting1:bool = false
 var hitting2:bool = false
 var hitting_wr:bool = false
