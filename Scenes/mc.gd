@@ -105,6 +105,15 @@ func _physics_process(delta: float) -> void:
 			else:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 
+
+	#Mostrar tutoriales
+	if $FLOOR.get_collider():
+		var collider = $FLOOR.get_collider()
+		if collider.name == "Texto":
+			get_node("/root/Node/InicioTutorial").visible = true
+		else:
+			get_node("/root/Node/InicioTutorial").visible = false		
+	
 	# Wall Jump detection
 	if $WJ.get_collider():
 		var collider = $WJ.get_collider()
@@ -114,7 +123,7 @@ func _physics_process(delta: float) -> void:
 				count_jumps = 0
 				pared = true
 				count_dashes = 0
-				allow_animation = true
+				allow_animation = true	
 		else:
 			pared = false
 	else:
