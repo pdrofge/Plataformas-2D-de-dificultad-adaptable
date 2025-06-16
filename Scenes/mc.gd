@@ -111,9 +111,17 @@ func _physics_process(delta: float) -> void:
 		var collider = $FLOOR.get_collider()
 		if collider.name == "Texto":
 			get_node("/root/Node/InicioTutorial").visible = true
+			get_node("/root/Node/DobleSalto").visible = true
+			get_node("/root/Node/Walljump").visible = true
+			get_node("/root/Node/Highjump").visible = true
+			get_node("/root/Node/JumpAndDash").visible = true
 		else:
-			get_node("/root/Node/InicioTutorial").visible = false		
-	
+			get_node("/root/Node/InicioTutorial").visible = false
+			get_node("/root/Node/DobleSalto").visible = false		
+			get_node("/root/Node/Walljump").visible = false
+			get_node("/root/Node/Highjump").visible = false
+			get_node("/root/Node/JumpAndDash").visible = false
+			
 	# Wall Jump detection
 	if $WJ.get_collider():
 		var collider = $WJ.get_collider()
