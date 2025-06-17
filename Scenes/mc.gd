@@ -109,15 +109,19 @@ func _physics_process(delta: float) -> void:
 	#Mostrar tutoriales
 	if $FLOOR.get_collider():
 		var collider = $FLOOR.get_collider()
-		if collider.name == "Texto":
+		if collider.name == "TextoInicio":
 			get_node("/root/Node/InicioTutorial").visible = true
+		elif collider.name == "TextoDobleSalto":
 			get_node("/root/Node/DobleSalto").visible = true
+		elif collider.name == "TextoWalljump":	
 			get_node("/root/Node/Walljump").visible = true
-			get_node("/root/Node/Highjump").visible = true
+		elif collider.name == "TextoHighjump":
+			get_node("/root/Node/Highjump").visible = true	
+		elif collider.name == 	"TextoJumpAndDash":
 			get_node("/root/Node/JumpAndDash").visible = true
 		else:
 			get_node("/root/Node/InicioTutorial").visible = false
-			get_node("/root/Node/DobleSalto").visible = false		
+			get_node("/root/Node/DobleSalto").visible = false
 			get_node("/root/Node/Walljump").visible = false
 			get_node("/root/Node/Highjump").visible = false
 			get_node("/root/Node/JumpAndDash").visible = false
