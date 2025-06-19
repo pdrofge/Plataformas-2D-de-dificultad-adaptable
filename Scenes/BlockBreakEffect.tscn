@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgtcndg0qib2j"]
+
+[ext_resource type="Texture2D" uid="uid://ch4lorddgw18b" path="res://Main Characters/Desappearing (96x96).png" id="1_k2o4x"]
+[ext_resource type="Script" path="res://Scenes/block_break_effect.gd" id="2_rl0y2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh811"]
+atlas = ExtResource("1_k2o4x")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rnlb"]
+atlas = ExtResource("1_k2o4x")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k84t5"]
+atlas = ExtResource("1_k2o4x")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ble2"]
+atlas = ExtResource("1_k2o4x")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kie1j"]
+atlas = ExtResource("1_k2o4x")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v415g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh811")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rnlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k84t5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ble2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kie1j")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 20.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_sw3c8"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("2_rl0y2")
+
+[node name="BlockBreakEffect" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v415g")
+animation = &"destroy"
+frame = 4
+frame_progress = 1.0
+script = SubResource("GDScript_sw3c8")
+
+[connection signal="animation_finished" from="BlockBreakEffect" to="." method="_on_block_break_effect_animation_finished"]

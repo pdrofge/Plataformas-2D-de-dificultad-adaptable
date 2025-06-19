@@ -500,6 +500,18 @@ one_shot = true
 position = Vector2(-1.5, 13.5)
 target_position = Vector2(14, 0)
 
+[node name="HIT1" type="RayCast2D" parent="."]
+position = Vector2(0, 24)
+target_position = Vector2(14, 0)
+
+[node name="HIT2" type="RayCast2D" parent="."]
+position = Vector2(0.5, -0.5)
+target_position = Vector2(14, 0)
+
+[node name="HIT3" type="RayCast2D" parent="."]
+position = Vector2(0.5, 6.5)
+target_position = Vector2(14, 0)
+
 [node name="sliding_time" type="Timer" parent="."]
 wait_time = 0.5
 

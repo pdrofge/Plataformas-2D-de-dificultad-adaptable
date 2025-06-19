@@ -10,7 +10,7 @@ var max_jumps:int = 2
 var count_jumps:int = 0
 var leaved_floor:bool = false #para CT
 var pared:bool = false
-var rcDim = 11
+var rcDim = 12
 var direction
 var down:bool = false
 var big_jump_boost = 1.2
@@ -27,9 +27,15 @@ var hitting_wr:bool = false
 
 func _ready():
 	$WJ.target_position.x = rcDim
+	$HIT1.target_position.x = rcDim
+	$HIT2.target_position.x = rcDim
+	$HIT3.target_position.x = rcDim
 	$sliding_time.wait_time = sliding_t
 	
 func _physics_process(delta: float) -> void:
+	#print($HIT3.target_position)
+	
+	
 	# Add gravity
 	if is_on_floor():
 		leaved_floor = false
@@ -105,6 +111,24 @@ func _physics_process(delta: float) -> void:
 			else:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	# Destruir bloques 
+	
+	for ray in [$HIT1, $HIT2, $HIT3, $WJ]:	
+		if ray.is_colliding():
+			var collider = ray.get_collider()
+		
+			if collider is TileMap and collider.name == "destructible" and (hitting1 or hitting2 or hitting_wr):
+				var tilemap := collider as TileMap
+				var collision_point = tilemap.to_local(ray.get_collision_point())
+				var tile_coords = tilemap.local_to_map(collision_point)
+
+				var world_pos = tilemap.to_global(tilemap.map_to_local(tile_coords))
+				tilemap.erase_cell(0, tile_coords) 
+	
+				var break_effect = preload("res://Scenes/BlockBreakEffect.tscn").instantiate()
+				break_effect.global_position = tilemap.to_global(world_pos)
+				get_tree().current_scene.add_child(break_effect)
+	
 	# Wall Jump detection
 	if $WJ.get_collider():
 		var collider = $WJ.get_collider()
@@ -145,9 +169,16 @@ func decide_animation():
 	if direction > 0:
 		$animaciones.flip_h = false
 		$WJ.target_position.x = rcDim
+		$HIT1.target_position.x = rcDim
+		$HIT2.target_position.x = rcDim
+		$HIT3.target_position.x = rcDim
+		
 	elif direction < 0:
 		$animaciones.flip_h = true
 		$WJ.target_position.x = -rcDim
+		$HIT1.target_position.x = -rcDim
+		$HIT2.target_position.x = -rcDim
+		$HIT3.target_position.x = -rcDim
 
 	if count_jumps > 1:
 		allow_animation = false

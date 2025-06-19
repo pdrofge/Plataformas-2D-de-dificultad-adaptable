@@ -6,7 +6,9 @@ extends Node2D
 	"TextoDobleSalto": $DobleSalto,
 	"TextoWalljump": $Walljump,
 	"TextoHighjump": $Highjump,
-	"TextoJumpAndDash": $JumpAndDash
+	"TextoJumpAndDash": $JumpAndDash,
+	"TextoAtacar1" : $Attack1,
+	"TextoAtacar2" : $Attack2
 }
 
 var player: Node2D  
