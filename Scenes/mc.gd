@@ -24,13 +24,6 @@ var dash_boost = 1.25
 var hitting1:bool = false
 var hitting2:bool = false
 var hitting_wr:bool = false
-var tutorial_texts = { #para textos en tutorial
-	"TextoInicio": "/root/Node/InicioTutorial",
-	"TextoDobleSalto": "/root/Node/DobleSalto",
-	"TextoWalljump": "/root/Node/Walljump",
-	"TextoHighjump": "/root/Node/Highjump",
-	"TextoJumpAndDash": "/root/Node/JumpAndDash"
-}
 
 func _ready():
 	$WJ.target_position.x = rcDim
@@ -112,19 +105,6 @@ func _physics_process(delta: float) -> void:
 			else:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 
-
-	#Mostrar tutoriales
-	var active_text_name = null
-
-	if $FLOOR.get_collider():
-		var collider_name = $FLOOR.get_collider().name
-		if tutorial_texts.has(collider_name):
-			active_text_name = collider_name
-
-	for name in tutorial_texts.keys():
-		var node = get_node(tutorial_texts[name])
-		node.visible = (name == active_text_name)
-		
 	# Wall Jump detection
 	if $WJ.get_collider():
 		var collider = $WJ.get_collider()
