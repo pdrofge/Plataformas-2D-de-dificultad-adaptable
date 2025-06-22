@@ -8,7 +8,8 @@ extends Node2D
 	"TextoHighjump": $Highjump,
 	"TextoJumpAndDash": $JumpAndDash,
 	"TextoAtacar1" : $Attack1,
-	"TextoAtacar2" : $Attack2
+	"TextoAtacar2" : $Attack2,
+	"TextoLastZone" : $LastZoneTutorial
 }
 
 var player: Node2D  
