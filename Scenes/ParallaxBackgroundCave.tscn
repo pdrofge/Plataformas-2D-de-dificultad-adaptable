@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://ihruqjiqv4rf"]
+
+[ext_resource type="Texture2D" uid="uid://dbwudofxwslw8" path="res://Background/cave/Cave Theme/Cave Theme/Cave Theme/BackGround Layers/00.png" id="1_g2ogl"]
+[ext_resource type="Texture2D" uid="uid://c7e4is6lr5wsm" path="res://Background/cave/Cave Theme/Cave Theme/Cave Theme/BackGround Layers/1.png" id="2_dp0ie"]
+[ext_resource type="Texture2D" uid="uid://cbehy42pihu0b" path="res://Background/cave/Cave Theme/Cave Theme/Cave Theme/BackGround Layers/2.png" id="3_web2d"]
+[ext_resource type="Texture2D" uid="uid://b2qxox8t18fky" path="res://Background/cave/Cave Theme/Cave Theme/Cave Theme/BackGround Layers/3.png" id="4_v1qmv"]
+[ext_resource type="Texture2D" uid="uid://bo6i1h41iw64a" path="res://Background/cave/Cave Theme/Cave Theme/Cave Theme/BackGround Layers/4.png" id="5_68lu5"]
+[ext_resource type="Texture2D" uid="uid://caufkccpqjkdr" path="res://Background/cave/Cave Theme/Cave Theme/Cave Theme/BackGround Layers/5.png" id="6_h6ne1"]
+[ext_resource type="Texture2D" uid="uid://cf7mgqbxnmskw" path="res://Background/cave/Cave Theme/Cave Theme/Cave Theme/BackGround Layers/6.png" id="7_gwgqc"]
+[ext_resource type="Texture2D" uid="uid://d1wowekvbdxd6" path="res://Background/cave/Cave Theme/Cave Theme/Cave Theme/BackGround Layers/7ForeGround.png" id="8_cqlb3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_g2ogl")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("2_dp0ie")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("3_web2d")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("4_v1qmv")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource("5_68lu5")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+texture = ExtResource("6_h6ne1")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+texture = ExtResource("7_gwgqc")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+texture = ExtResource("8_cqlb3")

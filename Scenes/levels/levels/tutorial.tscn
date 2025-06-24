@@ -1,8 +1,11 @@
-[gd_scene load_steps=56 format=3 uid="uid://bpp4prwymuga2"]
+[gd_scene load_steps=59 format=3 uid="uid://bpp4prwymuga2"]
 
 [ext_resource type="Texture2D" uid="uid://dbxdj1dx6bbf8" path="res://Terrain/Terrain (16x16).png" id="1_d6575"]
+[ext_resource type="Texture2D" uid="uid://dblne1xrvcfhx" path="res://Background/cave/layers/last_layer.png" id="1_g717x"]
+[ext_resource type="Texture2D" uid="uid://d16iipwf2dh3c" path="res://Background/cave/layers/background.png" id="1_io50g"]
 [ext_resource type="Script" path="res://Scenes/levels/levels/node_2d.gd" id="1_ruqqh"]
 [ext_resource type="Texture2D" uid="uid://3tnn0s5ipfgt" path="res://Terrain/Textures-16.png" id="2_6dgeb"]
+[ext_resource type="Texture2D" uid="uid://c74dbta036vbg" path="res://Background/cave/layers/middleground.png" id="2_haj20"]
 [ext_resource type="PackedScene" uid="uid://b2vig01w1i4ia" path="res://Scenes/main_character.tscn" id="3_t2k2j"]
 [ext_resource type="FontFile" uid="uid://0j813wsbml4w" path="res://fonts/Pixelmax-Regular.otf" id="4_i1m0e"]
 
@@ -7347,6 +7350,45 @@ sources/0 = SubResource("TileSetAtlasSource_io1hs")
 
 [node name="Node" type="Node"]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="BackgroundColor" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(4920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundColor"]
+scale = Vector2(12, 12)
+texture = ExtResource("1_g717x")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/BackgroundColor"]
+position = Vector2(2460, 0)
+scale = Vector2(12, 12)
+texture = ExtResource("1_g717x")
+
+[node name="BackgroundParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(2400, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BackgroundParallaxLayer"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_io50g")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/BackgroundParallaxLayer"]
+position = Vector2(1200, 0)
+scale = Vector2(5, 5)
+texture = ExtResource("1_io50g")
+
+[node name="MiddlegroundParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(2720, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/MiddlegroundParallaxLayer"]
+scale = Vector2(5, 5)
+texture = ExtResource("2_haj20")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/MiddlegroundParallaxLayer"]
+position = Vector2(1360, 0)
+scale = Vector2(5, 5)
+texture = ExtResource("2_haj20")
+
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("1_ruqqh")
 
@@ -7363,18 +7405,22 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Node2D/InicioTutorial/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Pisa estas plataformas"
 
 [node name="Label2" type="Label" parent="Node2D/InicioTutorial/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "para obtener información de "
 
 [node name="Label3" type="Label" parent="Node2D/InicioTutorial/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "utilidad. Avanza caminando y "
 
 [node name="Label4" type="Label" parent="Node2D/InicioTutorial/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "saltando"
 
 [node name="DobleSalto" type="MarginContainer" parent="Node2D"]
@@ -7390,14 +7436,17 @@ theme = SubResource("Theme_1efm8")
 
 [node name="Label" type="Label" parent="Node2D/DobleSalto/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Puedes saltar en el aire"
 
 [node name="Label2" type="Label" parent="Node2D/DobleSalto/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "tras saltar una primera"
 
 [node name="Label3" type="Label" parent="Node2D/DobleSalto/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "vez
 "
 
@@ -7414,14 +7463,17 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Node2D/Walljump/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Busca salientes "
 
 [node name="Label2" type="Label" parent="Node2D/Walljump/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "a los que agarrarte"
 
 [node name="Label3" type="Label" parent="Node2D/Walljump/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "para escalarlos"
 
 [node name="Highjump" type="MarginContainer" parent="Node2D"]
@@ -7437,18 +7489,22 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Node2D/Highjump/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Agáchate y salta"
 
 [node name="Label2" type="Label" parent="Node2D/Highjump/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "al mismo tiempo"
 
 [node name="Label3" type="Label" parent="Node2D/Highjump/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "para saltar más"
 
 [node name="Label4" type="Label" parent="Node2D/Highjump/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "alto"
 
 [node name="JumpAndDash" type="MarginContainer" parent="Node2D"]
@@ -7464,14 +7520,17 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Node2D/JumpAndDash/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Encadena hasta dos"
 
 [node name="Label2" type="Label" parent="Node2D/JumpAndDash/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "saltos y un impulso"
 
 [node name="Label3" type="Label" parent="Node2D/JumpAndDash/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "para llegar más lejos"
 
 [node name="Attack1" type="MarginContainer" parent="Node2D"]
@@ -7487,30 +7546,37 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Node2D/Attack1/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "El ladrillo"
 
 [node name="Label2" type="Label" parent="Node2D/Attack1/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "es uno de los"
 
 [node name="Label3" type="Label" parent="Node2D/Attack1/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "distintos tipos"
 
 [node name="Label4" type="Label" parent="Node2D/Attack1/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "de bloques "
 
 [node name="Label5" type="Label" parent="Node2D/Attack1/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "destructibles."
 
 [node name="Label6" type="Label" parent="Node2D/Attack1/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Golpéalos para "
 
 [node name="Label7" type="Label" parent="Node2D/Attack1/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "destruirlos"
 
 [node name="Attack2" type="MarginContainer" parent="Node2D"]
@@ -7526,34 +7592,42 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Node2D/Attack2/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Puedes golpear"
 
 [node name="Label2" type="Label" parent="Node2D/Attack2/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "mientras corres."
 
 [node name="Label3" type="Label" parent="Node2D/Attack2/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Te será útil para"
 
 [node name="Label4" type="Label" parent="Node2D/Attack2/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "destruir varios"
 
 [node name="Label5" type="Label" parent="Node2D/Attack2/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "bloques de forma"
 
 [node name="Label6" type="Label" parent="Node2D/Attack2/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "rápida y despejar"
 
 [node name="Label7" type="Label" parent="Node2D/Attack2/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "el camino para  "
 
 [node name="Label8" type="Label" parent="Node2D/Attack2/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "avanzar"
 
 [node name="LastZoneTutorial" type="MarginContainer" parent="Node2D"]
@@ -7569,18 +7643,22 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Node2D/LastZoneTutorial/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "La siguiente es la "
 
 [node name="Label2" type="Label" parent="Node2D/LastZoneTutorial/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "última sección. "
 
 [node name="Label3" type="Label" parent="Node2D/LastZoneTutorial/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Utiliza lo aprendido"
 
 [node name="Label4" type="Label" parent="Node2D/LastZoneTutorial/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "para superarla"
 
 [node name="walk_jump_djump" type="TileMap" parent="."]
