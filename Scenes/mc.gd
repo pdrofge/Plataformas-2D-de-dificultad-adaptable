@@ -49,14 +49,15 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("Enter") and not hitting1 and not hitting2 and not down and velocity.x == 0:
 			hitting1 = true
 			hitting2 = false
-			$animaciones.play("hit1")
+			if $animaciones.animation != "hit1":
+				$animaciones.play("hit1")
 
 		elif Input.is_action_just_pressed("Enter") and hitting1 and not hitting2:
 			hitting2 = true  # Marca que se activará "hit2"
 			
 		if Input.is_action_just_pressed("Enter") and not hitting1 and not hitting2 and not down and velocity.x != 0:
-			hitting_wr = true
-			$animaciones.play("hit_while_running")
+			if $animaciones.animation != "hit_while_running":
+				$animaciones.play("hit_while_running")
 
 		if Input.is_action_pressed("ui_down"):
 			down = true
