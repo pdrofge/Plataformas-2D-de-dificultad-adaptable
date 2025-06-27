@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		count_dashes = 0  # Resetea el dash al tocar el suelo
 		
 		# Detección de golpe
-		
+		"""
 		if Input.is_action_just_pressed("Enter") and not hitting1 and not hitting2 and not down and velocity.x == 0:
 			hitting1 = true
 			hitting2 = false
@@ -54,8 +54,21 @@ func _physics_process(delta: float) -> void:
 
 		elif Input.is_action_just_pressed("Enter") and hitting1 and not hitting2:
 			hitting2 = true  # Marca que se activará "hit2"
+		"""
+		if Input.is_action_just_pressed("Enter") and not down:
+			if velocity.x == 0 and not hitting1 and not hitting2 and not hitting_wr:
+				hitting1 = true
+				hitting2 = false
+				$animaciones.play("hit1")
+			elif hitting1 and not hitting2:
+				hitting2 = true  # Encadenamiento
+			elif velocity.x != 0 and not hitting1 and not hitting2 and not hitting_wr:
+				hitting_wr = true
+				$animaciones.play("hit_while_running")
+
 			
 		if Input.is_action_just_pressed("Enter") and not hitting1 and not hitting2 and not down and velocity.x != 0:
+			hitting_wr = true
 			if $animaciones.animation != "hit_while_running":
 				$animaciones.play("hit_while_running")
 
@@ -210,6 +223,40 @@ func decide_animation():
 		$animaciones.play("jump_down")
 
 func animation_finished() -> void:
+	var current_animation = $animaciones.animation
+	
+	match current_animation:
+		"hit1":
+			if hitting2:
+				$animaciones.play("hit2")
+			else:
+				hitting1 = false
+				hitting2 = false
+				allow_animation = true
+				decide_animation()
+
+		"hit2":
+			hitting1 = false
+			hitting2 = false
+			allow_animation = true
+			decide_animation()
+
+		"hit_while_running":
+			hitting_wr = false
+			allow_animation = true
+			decide_animation()
+
+		_:
+			# Si no es ninguna de las animaciones de ataque, simplemente desbloquea
+			hitting1 = false
+			hitting2 = false
+			hitting_wr = false
+			allow_animation = true
+
+	
+	
+	
+	"""
 	var current_animation = $animaciones.animation  # Obtiene la animación actual
 	
 	if current_animation == "hit1":
@@ -225,6 +272,8 @@ func animation_finished() -> void:
 		hitting_wr = false
 	
 	allow_animation = true  # Permitimos otras animaciones después del combo
+
+"""
 
 func _on_ct_timeout() -> void:
 	pass
