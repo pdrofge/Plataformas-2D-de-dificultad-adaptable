@@ -523,6 +523,9 @@ wait_time = 0.3
 [node name="FLOOR" type="RayCast2D" parent="."]
 target_position = Vector2(0, 28.5)
 
+[node name="just_damaged" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="animaciones" to="." method="animation_finished"]
 [connection signal="timeout" from="CT" to="." method="_on_ct_timeout"]
 [connection signal="timeout" from="sliding_time" to="." method="_on_sliding_time_timeout"]

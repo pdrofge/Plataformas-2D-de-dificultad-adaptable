@@ -20,4 +20,4 @@ func loadLifes():
 				width = 0
 
 		$heartsFull.custom_minimum_size.x = width
-		print("Redimensionar Control 'heartsFull' a ", $heartsFull.custom_minimum_size)
+		

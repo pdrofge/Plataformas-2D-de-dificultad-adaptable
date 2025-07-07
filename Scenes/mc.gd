@@ -29,6 +29,7 @@ var lifes:int = 3
 
 func _ready():
 	
+	
 	var hud  = get_tree().get_current_scene().find_child("HUD", true, false)
 	if hud:
 		hud.loadLifes()
@@ -41,12 +42,11 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	#print($HIT3.target_position)
-	
 	if $FLOOR.get_collider():
 		var collider = $FLOOR.get_collider().name
-		if collider == "spike" :  #and lifes == 3: #lifes == 3 BORRARLO tras probar que funciona
+		if collider == "spike" && $just_damaged.is_stopped(): #lifes == 3 BORRARLO tras probar que funciona
 			_changeLifes(-1)
-			
+			$just_damaged.start()
 	# Add gravity
 	if is_on_floor():
 		leaved_floor = false
