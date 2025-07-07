@@ -24,8 +24,15 @@ var dash_boost = 1.25
 var hitting1:bool = false
 var hitting2:bool = false
 var hitting_wr:bool = false
+var max_lifes:int = 3 
+var lifes:int = 3 
 
 func _ready():
+	
+	var hud  = get_tree().get_current_scene().find_child("HUD", true, false)
+	if hud:
+		hud.loadLifes()
+	
 	$WJ.target_position.x = rcDim
 	$HIT1.target_position.x = rcDim
 	$HIT2.target_position.x = rcDim
@@ -35,7 +42,11 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	#print($HIT3.target_position)
 	
-	
+	if $FLOOR.get_collider():
+		var collider = $FLOOR.get_collider().name
+		if collider == "spike" :  #and lifes == 3: #lifes == 3 BORRARLO tras probar que funciona
+			_changeLifes(-1)
+			
 	# Add gravity
 	if is_on_floor():
 		leaved_floor = false
@@ -284,3 +295,26 @@ func _on_sliding_time_timeout() -> void:
 func _on_dash_time_timeout() -> void:
 	dash_end = true
 	dash = false  # Termina el dash al acabar el tiempo
+	
+	
+
+	
+	
+func _changeLifes(number: int):
+	if number < 0:
+		var restar = number * -1
+		if lifes - restar > 0:
+			lifes = lifes - restar
+		else:
+			lifes = 0
+	else:
+		pass
+	checkLifes()	
+	
+func checkLifes():
+	
+	var hud  = get_tree().get_current_scene().find_child("HUD", true, false)
+	if hud:
+		hud.loadLifes()
+	#print("Tienes " + str(lifes) + " vidas")
+	#habría que moverlo al anterior checkpoint en caso de tener 1 o más vidas
