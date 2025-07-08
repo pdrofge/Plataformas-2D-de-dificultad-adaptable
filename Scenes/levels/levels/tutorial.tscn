@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://bpp4prwymuga2"]
+[gd_scene load_steps=71 format=3 uid="uid://bpp4prwymuga2"]
 
 [ext_resource type="Texture2D" uid="uid://dbxdj1dx6bbf8" path="res://Terrain/Terrain (16x16).png" id="1_d6575"]
 [ext_resource type="Texture2D" uid="uid://dblne1xrvcfhx" path="res://Background/cave/layers/last_layer.png" id="1_g717x"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://bqobdxfqugdys" path="res://Menu/HUD/hud_heartFull.png" id="10_e5o5l"]
 [ext_resource type="Script" path="res://Scenes/levels/levels/hud.gd" id="10_tv7lp"]
 [ext_resource type="Texture2D" uid="uid://dc4vh8a4n0tpf" path="res://Menu/HUD/hud_heartEmpty.png" id="11_5aqbl"]
+[ext_resource type="Script" path="res://Scenes/levels/levels/checkpoint_manager.gd" id="13_holnw"]
+[ext_resource type="PackedScene" uid="uid://dg213n2ttcmc2" path="res://Scenes/checkpoint.tscn" id="14_m2skk"]
 
 [sub_resource type="Theme" id="Theme_x6q1p"]
 default_font = ExtResource("4_i1m0e")
@@ -13577,3 +13579,9 @@ offset_right = 169.0
 offset_bottom = 81.0
 texture = ExtResource("11_5aqbl")
 stretch_mode = 1
+
+[node name="CheckpointManager" type="Node" parent="."]
+script = ExtResource("13_holnw")
+
+[node name="Checkpoint" parent="CheckpointManager" instance=ExtResource("14_m2skk")]
+position = Vector2(914, -41)

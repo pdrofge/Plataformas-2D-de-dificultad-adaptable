@@ -26,10 +26,11 @@ var hitting2:bool = false
 var hitting_wr:bool = false
 var max_lifes:int = 3 
 var lifes:int = 3 
+var checkpoint_manager
 
 func _ready():
 	
-	
+	checkpoint_manager = get_parent().get_node("CheckpointManager")
 	var hud  = get_tree().get_current_scene().find_child("HUD", true, false)
 	if hud:
 		hud.loadLifes()
@@ -305,6 +306,7 @@ func _changeLifes(number: int):
 		var restar = number * -1
 		if lifes - restar > 0:
 			lifes = lifes - restar
+			position = checkpoint_manager.last_location
 		else:
 			lifes = 0
 	else:
