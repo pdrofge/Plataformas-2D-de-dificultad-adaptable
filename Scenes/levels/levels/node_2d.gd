@@ -9,7 +9,8 @@ extends Node2D
 	"TextoJumpAndDash": $JumpAndDash,
 	"TextoAtacar1" : $Attack1,
 	"TextoAtacar2" : $Attack2,
-	"TextoLastZone" : $LastZoneTutorial
+	"TextoLastZone" : $LastZoneTutorial,
+	"TextoCP" : $CPTutorial
 }
 
 var player: Node2D  

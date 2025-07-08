@@ -14,6 +14,6 @@ shape = SubResource("RectangleShape2D_2dato")
 metadata/_edit_group_ = true
 
 [node name="RespawnPoint" type="Marker2D" parent="."]
-position = Vector2(70, -81)
+position = Vector2(0, -17)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
