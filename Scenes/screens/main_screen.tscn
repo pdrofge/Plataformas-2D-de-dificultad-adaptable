@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxt543jrlj38h"]
+
+[ext_resource type="FontFile" uid="uid://cv1akwkp83105" path="res://fonts/Bungee-Regular.ttf" id="1_0q5o4"]
+[ext_resource type="Script" path="res://Scenes/screens/restart_button.gd" id="3_w3clo"]
+
+[sub_resource type="Theme" id="Theme_f1ixu"]
+default_font = ExtResource("1_0q5o4")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_svm4c"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_or46h"]
+
+[node name="Game_Over_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.305882, 0.611765, 0.870588, 1)
+
+[node name="restartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 407.0
+offset_right = 649.0
+offset_bottom = 468.0
+theme = SubResource("Theme_f1ixu")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+text = "JUGAR"
+flat = true
+script = ExtResource("3_w3clo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.017
+anchor_bottom = 0.031
+offset_left = 176.0
+offset_top = 412.0
+offset_right = 196.416
+offset_bottom = 431.912
+theme = SubResource("Theme_svm4c")
+texture = SubResource("PortableCompressedTexture2D_or46h")
+
+[connection signal="pressed" from="restartButton" to="restartButton" method="_on_pressed"]

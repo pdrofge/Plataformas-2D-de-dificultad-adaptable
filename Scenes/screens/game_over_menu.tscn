@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://dflfpxxokvf6g"]
+
+[ext_resource type="FontFile" uid="uid://fms0ehcnnkuc" path="res://fonts/Bitcount_Grid_Double/BitcountGridDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="1_jwknv"]
+[ext_resource type="FontFile" uid="uid://cv1akwkp83105" path="res://fonts/Bungee-Regular.ttf" id="2_0ed3l"]
+[ext_resource type="Script" path="res://Scenes/screens/restart_button.gd" id="3_7klbp"]
+[ext_resource type="Script" path="res://Scenes/screens/main_menu_button.gd" id="4_spj0l"]
+
+[sub_resource type="Theme" id="Theme_5rsdc"]
+default_font = ExtResource("1_jwknv")
+default_font_size = 120
+
+[sub_resource type="Theme" id="Theme_f1ixu"]
+default_font = ExtResource("2_0ed3l")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_lxms4"]
+default_font = ExtResource("2_0ed3l")
+default_font_size = 40
+
+[node name="Game_Over_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.305882, 0.611765, 0.870588, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 123.0
+offset_right = 872.0
+offset_bottom = 268.0
+theme = SubResource("Theme_5rsdc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "GAME OVER"
+
+[node name="restartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 343.0
+offset_right = 749.0
+offset_bottom = 422.0
+theme = SubResource("Theme_f1ixu")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+text = "REINICIAR NIVEL"
+flat = true
+script = ExtResource("3_7klbp")
+
+[node name="mainMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 363.0
+offset_top = 450.0
+offset_right = 745.0
+offset_bottom = 529.0
+theme = SubResource("Theme_lxms4")
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+text = "MENÚ PRINCIPAL"
+flat = true
+script = ExtResource("4_spj0l")
+
+[connection signal="pressed" from="restartButton" to="restartButton" method="_on_pressed"]
+[connection signal="pressed" from="mainMenuButton" to="restartButton" method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="mainMenuButton" to="mainMenuButton" method="_on_pressed"]

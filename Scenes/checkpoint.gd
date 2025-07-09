@@ -14,5 +14,4 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("main_character"):
-		print("cp reached")
 		checkpoint_manager.last_location = $RespawnPoint.global_position

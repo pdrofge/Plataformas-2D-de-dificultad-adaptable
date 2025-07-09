@@ -321,5 +321,8 @@ func checkLifes():
 	var hud  = get_tree().get_current_scene().find_child("HUD", true, false)
 	if hud:
 		hud.loadLifes()
+	if lifes == 0:
+		GameManager.set_last_scene(get_tree().current_scene.scene_file_path)
+		get_tree().change_scene_to_file("res://Scenes/screens/game_over_menu.tscn")	
 	#print("Tienes " + str(lifes) + " vidas")
 	#habría que moverlo al anterior checkpoint en caso de tener 1 o más vidas
