@@ -1,17 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxt543jrlj38h"]
+[gd_scene load_steps=10 format=3 uid="uid://cxt543jrlj38h"]
 
 [ext_resource type="FontFile" uid="uid://cv1akwkp83105" path="res://fonts/Bungee-Regular.ttf" id="1_0q5o4"]
+[ext_resource type="Texture2D" uid="uid://c7x4vethhoyyk" path="res://images/360_F_779107802_pA1dmPZ9dhqOSqMW8dkTteZF7Ey3QZAM.jpg" id="1_gc3xv"]
+[ext_resource type="FontFile" uid="uid://b4kme1rrh34sr" path="res://fonts/BebasNeue-Regular.ttf" id="3_i4xaf"]
 [ext_resource type="Script" path="res://Scenes/screens/restart_button.gd" id="3_w3clo"]
 
 [sub_resource type="Theme" id="Theme_f1ixu"]
 default_font = ExtResource("1_0q5o4")
 default_font_size = 40
 
-[sub_resource type="Theme" id="Theme_svm4c"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnn0l"]
+bg_color = Color(0.282353, 0.352941, 0.541176, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_or46h"]
+[sub_resource type="Theme" id="Theme_nmghc"]
+default_font = ExtResource("3_i4xaf")
+default_font_size = 29
 
-[node name="Game_Over_Menu" type="Control"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1rdd"]
+bg_color = Color(0.99, 1, 0.992333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvsaf"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Main_screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,34 +34,249 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
+offset_top = 2.0
 offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.305882, 0.611765, 0.870588, 1)
+offset_bottom = 646.0
+texture = ExtResource("1_gc3xv")
 
-[node name="restartButton" type="Button" parent="."]
+[node name="playButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 469.0
-offset_top = 407.0
-offset_right = 649.0
-offset_bottom = 468.0
+offset_left = 282.0
+offset_top = 538.0
+offset_right = 579.0
+offset_bottom = 652.0
 theme = SubResource("Theme_f1ixu")
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.207843, 0.592157, 0.784314, 1)
+theme_override_colors/font_color = Color(0.988235, 1, 0.992157, 1)
 text = "JUGAR"
 flat = true
 script = ExtResource("3_w3clo")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ControlesPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 354.0
+offset_right = 1141.0
+offset_bottom = 638.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xnn0l")
+
+[node name="Label" type="Label" parent="ControlesPanel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.017
-anchor_bottom = 0.031
-offset_left = 176.0
-offset_top = 412.0
-offset_right = 196.416
-offset_bottom = 431.912
-theme = SubResource("Theme_svm4c")
-texture = SubResource("PortableCompressedTexture2D_or46h")
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = 154.0
+offset_top = -1.0
+offset_right = 291.888
+offset_bottom = 34.39
+theme = SubResource("Theme_nmghc")
+text = "CONTROLES"
 
-[connection signal="pressed" from="restartButton" to="restartButton" method="_on_pressed"]
+[node name="PanelEspacio" type="Panel" parent="ControlesPanel/Label"]
+layout_mode = 0
+offset_left = -144.0
+offset_top = 34.0
+offset_right = -10.0
+offset_bottom = 74.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m1rdd")
+
+[node name="PanelEspacio2" type="Panel" parent="ControlesPanel/Label"]
+layout_mode = 0
+offset_left = -142.0
+offset_top = 172.0
+offset_right = -4.0
+offset_bottom = 212.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m1rdd")
+
+[node name="PanelTecla2" type="Panel" parent="ControlesPanel/Label"]
+layout_mode = 0
+offset_left = -87.0
+offset_top = 84.0
+offset_right = -46.0
+offset_bottom = 118.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m1rdd")
+
+[node name="PanelTecla1" type="Panel" parent="ControlesPanel/Label"]
+layout_mode = 0
+offset_left = -142.0
+offset_top = 84.0
+offset_right = -101.0
+offset_bottom = 118.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m1rdd")
+
+[node name="PanelTecla3" type="Panel" parent="ControlesPanel/Label"]
+layout_mode = 0
+offset_left = -142.0
+offset_top = 129.0
+offset_right = -101.0
+offset_bottom = 163.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m1rdd")
+
+[node name="Enter1" type="Panel" parent="ControlesPanel/Label"]
+layout_mode = 0
+offset_left = -142.0
+offset_top = 218.0
+offset_right = -103.0
+offset_bottom = 242.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xvsaf")
+
+[node name="Enter2" type="Panel" parent="ControlesPanel/Label"]
+layout_mode = 0
+offset_left = -132.0
+offset_top = 219.0
+offset_right = -101.0
+offset_bottom = 268.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xvsaf")
+
+[node name="Label" type="Label" parent="ControlesPanel/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = 147.0
+offset_top = 34.0
+offset_right = 284.888
+offset_bottom = 69.39
+theme = SubResource("Theme_nmghc")
+text = "SALTAR
+"
+
+[node name="Label5" type="Label" parent="ControlesPanel/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = 142.0
+offset_top = 77.0
+offset_right = 279.888
+offset_bottom = 112.39
+theme = SubResource("Theme_nmghc")
+text = "AVANZAR
+"
+
+[node name="Label6" type="Label" parent="ControlesPanel/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = 142.0
+offset_top = 124.0
+offset_right = 279.888
+offset_bottom = 159.39
+theme = SubResource("Theme_nmghc")
+text = "AGACHARSE
+"
+
+[node name="Label9" type="Label" parent="ControlesPanel/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = 141.0
+offset_top = 166.0
+offset_right = 278.888
+offset_bottom = 201.39
+theme = SubResource("Theme_nmghc")
+text = "IMPULSARSE
+"
+
+[node name="Label11" type="Label" parent="ControlesPanel/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = 143.0
+offset_top = 219.0
+offset_right = 280.888
+offset_bottom = 254.39
+theme = SubResource("Theme_nmghc")
+text = "GOLPEAR
+"
+
+[node name="Label2" type="Label" parent="ControlesPanel/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = -113.0
+offset_top = 37.0
+offset_right = 24.888
+offset_bottom = 72.39
+theme = SubResource("Theme_nmghc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ESPACIO
+"
+
+[node name="Label8" type="Label" parent="ControlesPanel/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = -115.0
+offset_top = 175.0
+offset_right = 22.888
+offset_bottom = 210.39
+theme = SubResource("Theme_nmghc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SUPRIMIR
+"
+
+[node name="Label3" type="Label" parent="ControlesPanel/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = -79.0
+offset_top = 78.0
+offset_right = -66.486
+offset_bottom = 115.948
+theme = SubResource("Theme_nmghc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "⭢
+"
+
+[node name="Label7" type="Label" parent="ControlesPanel/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = -129.0
+offset_top = 124.0
+offset_right = -116.486
+offset_bottom = 161.948
+theme = SubResource("Theme_nmghc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "⭣
+"
+
+[node name="Label10" type="Label" parent="ControlesPanel/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = -129.0
+offset_top = 222.0
+offset_right = -101.486
+offset_bottom = 259.948
+theme = SubResource("Theme_nmghc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "↲
+"
+
+[node name="Label4" type="Label" parent="ControlesPanel/Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.092
+anchor_bottom = 0.043
+offset_left = -139.0
+offset_top = 78.0
+offset_right = -126.486
+offset_bottom = 115.948
+theme = SubResource("Theme_nmghc")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "⭠
+"
+
+[connection signal="pressed" from="playButton" to="playButton" method="_on_pressed"]

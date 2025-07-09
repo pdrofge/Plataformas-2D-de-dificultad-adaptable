@@ -47,9 +47,9 @@ func _physics_process(delta: float) -> void:
 	#print($HIT3.target_position)
 	if $FLOOR.get_collider():
 		var collider = $FLOOR.get_collider().name
-		if collider == "spike" && $just_damaged.is_stopped(): #lifes == 3 BORRARLO tras probar que funciona
+		if collider == "spike": #&& $just_damaged.is_stopped(): #lifes == 3 BORRARLO tras probar que funciona
 			_changeLifes(-1)
-			$just_damaged.start()
+			#$just_damaged.start()
 	# Add gravity
 	if is_on_floor():
 		leaved_floor = false

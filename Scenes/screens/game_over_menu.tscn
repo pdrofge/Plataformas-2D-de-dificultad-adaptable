@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dflfpxxokvf6g"]
+[gd_scene load_steps=9 format=3 uid="uid://dflfpxxokvf6g"]
 
 [ext_resource type="FontFile" uid="uid://fms0ehcnnkuc" path="res://fonts/Bitcount_Grid_Double/BitcountGridDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="1_jwknv"]
 [ext_resource type="FontFile" uid="uid://cv1akwkp83105" path="res://fonts/Bungee-Regular.ttf" id="2_0ed3l"]
 [ext_resource type="Script" path="res://Scenes/screens/restart_button.gd" id="3_7klbp"]
 [ext_resource type="Script" path="res://Scenes/screens/main_menu_button.gd" id="4_spj0l"]
+[ext_resource type="Texture2D" uid="uid://bm6o8i87fgn6h" path="res://images/ab67616d0000b2734101eb394f1596d84f89cc4b.jpg" id="5_0op8x"]
 
 [sub_resource type="Theme" id="Theme_5rsdc"]
 default_font = ExtResource("1_jwknv")
@@ -29,41 +30,56 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.305882, 0.611765, 0.870588, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 651.0
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 224.0
-offset_top = 123.0
-offset_right = 872.0
-offset_bottom = 268.0
+offset_left = 252.0
+offset_top = 139.0
+offset_right = 900.0
+offset_bottom = 284.0
 theme = SubResource("Theme_5rsdc")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "GAME OVER"
 
 [node name="restartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 352.0
-offset_top = 343.0
-offset_right = 749.0
-offset_bottom = 422.0
+offset_left = 692.0
+offset_top = 540.0
+offset_right = 1089.0
+offset_bottom = 619.0
 theme = SubResource("Theme_f1ixu")
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 text = "REINICIAR NIVEL"
 flat = true
 script = ExtResource("3_7klbp")
 
 [node name="mainMenuButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 363.0
-offset_top = 450.0
-offset_right = 745.0
-offset_bottom = 529.0
+offset_left = 44.0
+offset_top = 546.0
+offset_right = 426.0
+offset_bottom = 625.0
 theme = SubResource("Theme_lxms4")
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
 text = "MENÚ PRINCIPAL"
 flat = true
 script = ExtResource("4_spj0l")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 13.0
+offset_right = 876.0
+offset_bottom = 538.0
+texture = ExtResource("5_0op8x")
+expand_mode = 1
 
 [connection signal="pressed" from="restartButton" to="restartButton" method="_on_pressed"]
 [connection signal="pressed" from="mainMenuButton" to="restartButton" method="_on_main_menu_button_pressed"]
