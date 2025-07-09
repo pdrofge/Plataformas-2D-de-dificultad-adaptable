@@ -10,7 +10,8 @@ extends Node2D
 	"TextoAtacar1" : $Attack1,
 	"TextoAtacar2" : $Attack2,
 	"TextoLastZone" : $LastZoneTutorial,
-	"TextoCP" : $CPTutorial
+	"TextoCP" : $CPTutorial,
+	"TextoFinalNivel" : $FinTutorial
 }
 
 var player: Node2D  
