@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://ch6g1iubhnpa7"]
+[gd_scene load_steps=12 format=3 uid="uid://ch6g1iubhnpa7"]
 
 [ext_resource type="Script" path="res://Scenes/screens/results_screen.gd" id="1_20rqi"]
-[ext_resource type="Texture2D" uid="uid://drslfq3akpfm4" path="res://images/results/a_mark.png" id="1_xa38u"]
+[ext_resource type="Texture2D" uid="uid://b4j2j08w2sobv" path="res://images/results/b_mark.png" id="2_h0q2c"]
 [ext_resource type="FontFile" uid="uid://cv1akwkp83105" path="res://fonts/Bungee-Regular.ttf" id="2_p1w40"]
 [ext_resource type="Script" path="res://Scenes/screens/next_levelt_button.gd" id="4_mmf5w"]
 [ext_resource type="Script" path="res://Scenes/screens/main_menu_button.gd" id="4_ntq3f"]
@@ -22,6 +22,10 @@ default_font_size = 49
 [sub_resource type="Theme" id="Theme_j60ya"]
 default_font = ExtResource("5_klsak")
 
+[sub_resource type="Theme" id="Theme_3habc"]
+default_font = ExtResource("5_klsak")
+default_font_size = 22
+
 [node name="Game_Over_Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -41,7 +45,7 @@ color = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 651.0
-texture = ExtResource("1_xa38u")
+texture = ExtResource("2_h0q2c")
 expand_mode = 1
 
 [node name="nextLeveltButton" type="Button" parent="."]
@@ -123,6 +127,35 @@ offset_bottom = 88.0
 theme = SubResource("Theme_j60ya")
 theme_override_colors/font_color = Color(0.984314, 0.968627, 0.819608, 1)
 text = "DIFICULTAD ESCOGIDA:"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 65.0
+offset_right = 191.0
+offset_bottom = 88.0
+theme = SubResource("Theme_j60ya")
+theme_override_colors/font_color = Color(0.984314, 0.968627, 0.819608, 1)
+text = "DIFICULTAD ESCOGIDA:"
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 81.0
+offset_right = 52.0
+offset_bottom = 104.0
+theme = SubResource("Theme_3habc")
+theme_override_colors/font_color = Color(0.646758, 0.181004, 0, 1)
+text = "PUNTUACIÓN OBTENIDA:"
+
+[node name="mark" type="Label" parent="."]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 89.0
+offset_right = 539.0
+offset_bottom = 119.0
+theme = SubResource("Theme_3habc")
+theme_override_colors/font_color = Color(0.647059, 0.180392, 0, 1)
 
 [connection signal="pressed" from="nextLeveltButton" to="nextLeveltButton" method="_on_pressed"]
 [connection signal="pressed" from="mainMenuButton" to="nextLeveltButton" method="_on_main_menu_button_pressed"]

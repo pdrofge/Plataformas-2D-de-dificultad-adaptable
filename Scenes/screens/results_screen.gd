@@ -8,15 +8,14 @@ func _ready():
 	if path_selected == "":
 		if lifes == max_lifes:
 			$imagenResultados.texture = load("res://images/results/a_mark.png")
-			$lifesResult.text = str(lifes)
-			$pathResult.text = "-"
+			$mark.text = "A"
 		elif lifes == 1:
 			$imagenResultados.texture = load("res://images/results/c_mark.png")
-			$lifesResult.text = str(lifes)
-			$pathResult.text = "-"
+			$mark.text = "C"
 		else:
 			$imagenResultados.texture = load("res://images/results/b_mark.png")
-			$lifesResult.text = str(lifes)
-			$pathResult.text = "-"
+			$mark.text = "B"
+		$lifesResult.text = str(lifes)
+		$pathResult.text = "-"
 	else:
 		pass
