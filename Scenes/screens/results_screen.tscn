@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=3 uid="uid://ch6g1iubhnpa7"]
+
+[ext_resource type="Script" path="res://Scenes/screens/results_screen.gd" id="1_20rqi"]
+[ext_resource type="Texture2D" uid="uid://drslfq3akpfm4" path="res://images/results/a_mark.png" id="1_xa38u"]
+[ext_resource type="FontFile" uid="uid://cv1akwkp83105" path="res://fonts/Bungee-Regular.ttf" id="2_p1w40"]
+[ext_resource type="Script" path="res://Scenes/screens/next_levelt_button.gd" id="4_mmf5w"]
+[ext_resource type="Script" path="res://Scenes/screens/main_menu_button.gd" id="4_ntq3f"]
+[ext_resource type="FontFile" uid="uid://nllk3g0qlkkk" path="res://fonts/Pixelout.ttf" id="5_klsak"]
+
+[sub_resource type="Theme" id="Theme_f1ixu"]
+default_font = ExtResource("2_p1w40")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_lxms4"]
+default_font = ExtResource("2_p1w40")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_x6jwf"]
+default_font = ExtResource("5_klsak")
+default_font_size = 49
+
+[sub_resource type="Theme" id="Theme_j60ya"]
+default_font = ExtResource("5_klsak")
+
+[node name="Game_Over_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_20rqi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="imagenResultados" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 651.0
+texture = ExtResource("1_xa38u")
+expand_mode = 1
+
+[node name="nextLeveltButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 498.0
+offset_right = 395.0
+offset_bottom = 577.0
+theme = SubResource("Theme_f1ixu")
+theme_override_colors/font_hover_color = Color(0.337255, 0.517647, 0.568627, 1)
+text = "CONTINUAR"
+flat = true
+script = ExtResource("4_mmf5w")
+
+[node name="mainMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 557.0
+offset_right = 393.0
+offset_bottom = 636.0
+theme = SubResource("Theme_lxms4")
+theme_override_colors/font_hover_color = Color(0.329412, 0.517647, 0.560784, 1)
+text = "MENÚ PRINCIPAL"
+flat = true
+script = ExtResource("4_ntq3f")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 17.0
+offset_right = 502.0
+offset_bottom = 338.0
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 311.0
+offset_bottom = 55.0
+theme = SubResource("Theme_x6jwf")
+theme_override_colors/font_color = Color(0.984314, 0.968627, 0.819608, 1)
+text = "RESULTADOS"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 50.0
+offset_right = 145.0
+offset_bottom = 76.0
+theme = SubResource("Theme_j60ya")
+theme_override_colors/font_color = Color(0.984314, 0.968627, 0.819608, 1)
+text = "VIDAS RESTANTES:"
+
+[node name="lifesResult" type="Label" parent="."]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 47.0
+offset_right = 295.0
+offset_bottom = 73.0
+theme = SubResource("Theme_j60ya")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="pathResult" type="Label" parent="."]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 66.0
+offset_right = 329.0
+offset_bottom = 92.0
+theme = SubResource("Theme_j60ya")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 65.0
+offset_right = 191.0
+offset_bottom = 88.0
+theme = SubResource("Theme_j60ya")
+theme_override_colors/font_color = Color(0.984314, 0.968627, 0.819608, 1)
+text = "DIFICULTAD ESCOGIDA:"
+
+[connection signal="pressed" from="nextLeveltButton" to="nextLeveltButton" method="_on_pressed"]
+[connection signal="pressed" from="mainMenuButton" to="nextLeveltButton" method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="mainMenuButton" to="mainMenuButton" method="_on_pressed"]

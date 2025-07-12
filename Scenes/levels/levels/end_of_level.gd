@@ -12,5 +12,6 @@ func _physics_process(delta) -> void:
 	if floor_ray and floor_ray.is_colliding():
 		var collider: Node = floor_ray.get_collider()
 		if collider.name == "end_of_level":
-			#get_tree().change_scene_to_file("res://Scenes/levels/")
-			pass
+			GameManager.set_lifes(player.lifes, player.max_lifes)
+			GameManager.set_last_scene(get_tree().current_scene.scene_file_path)
+			get_tree().change_scene_to_file("res://Scenes/screens/results_screen.tscn")

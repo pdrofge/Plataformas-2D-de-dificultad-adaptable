@@ -2,6 +2,6 @@ extends Button
 
 
 func _on_pressed() -> void:
-	
-		get_tree().change_scene_to_file("res://Scenes/levels/levels/tutorial.tscn")
+		
+		get_tree().change_scene_to_file(GameManager.get_last_scene())
 	
