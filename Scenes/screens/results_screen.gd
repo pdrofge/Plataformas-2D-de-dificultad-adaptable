@@ -19,3 +19,12 @@ func _ready():
 		$pathResult.text = "-"
 	else:
 		pass
+		
+	
+	if $mark.text == "A":
+		$music.stream = load("res://music/calification/a_mark.mp3")
+	elif $mark.text == "B":
+		$music.stream = load("res://music/calification/b_mark.mp3")
+	else:
+		$music.stream = load("res://music/calification/c_mark.mp3")
+	$music.play()

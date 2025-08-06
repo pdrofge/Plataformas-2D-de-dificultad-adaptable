@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://bpp4prwymuga2"]
+[gd_scene load_steps=92 format=3 uid="uid://bpp4prwymuga2"]
 
 [ext_resource type="Texture2D" uid="uid://dbxdj1dx6bbf8" path="res://Terrain/Terrain (16x16).png" id="1_d6575"]
 [ext_resource type="Texture2D" uid="uid://dblne1xrvcfhx" path="res://Background/cave/layers/last_layer.png" id="1_g717x"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ck1nk2bo2m8jc" path="res://Items/Checkpoints/Checkpoint/Checkpoint (Flag Out) (64x64).png" id="16_0h2b5"]
 [ext_resource type="Texture2D" uid="uid://cvfwu4tud4bl6" path="res://Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="17_on4v4"]
 [ext_resource type="Texture2D" uid="uid://d2tfr40apyhvh" path="res://Terrain/tilemap.png" id="18_jhy4j"]
+[ext_resource type="AudioStream" uid="uid://d1byxqivgqlbf" path="res://music/levels/tutorial/tutorial.mp3" id="20_iv3vs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4fna"]
 texture = ExtResource("18_jhy4j")
@@ -15570,3 +15571,8 @@ layer_0/tile_data = PackedInt32Array(852405, 851968, 5, 917941, 851968, 6, 85240
 tile_set = SubResource("TileSet_7ir5v")
 format = 2
 layer_0/tile_data = PackedInt32Array(852401, 1179648, 9, 917937, 1179648, 10, 852402, 1245184, 9, 917938, 1245184, 10)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_iv3vs")
+autoplay = true
+parameters/looping = false

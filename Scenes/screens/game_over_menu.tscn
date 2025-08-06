@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dflfpxxokvf6g"]
+[gd_scene load_steps=13 format=3 uid="uid://dflfpxxokvf6g"]
 
 [ext_resource type="Texture2D" uid="uid://da0ohgcwlicmu" path="res://images/game_over_back1.png" id="1_0d405"]
 [ext_resource type="FontFile" uid="uid://fms0ehcnnkuc" path="res://fonts/Bitcount_Grid_Double/BitcountGridDouble-VariableFont_CRSV,ELSH,ELXP,slnt,wght.ttf" id="1_jwknv"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://Scenes/screens/restart_button.gd" id="3_7klbp"]
 [ext_resource type="Script" path="res://Scenes/screens/main_menu_button.gd" id="4_spj0l"]
 [ext_resource type="Texture2D" uid="uid://b4p642gck3ihq" path="res://images/Game_Over_Font.png" id="6_pwpy2"]
+[ext_resource type="AudioStream" uid="uid://ds5pamxvrshpt" path="res://music/game_over/game_over.mp3" id="7_lh18p"]
+[ext_resource type="AudioStream" uid="uid://fkmjx7q4h02t" path="res://music/buttons/select_cut.mp3" id="8_0jvwq"]
+[ext_resource type="AudioStream" uid="uid://wjgl0rwwmg6i" path="res://music/buttons/hover_cut.mp3" id="9_xq75o"]
 
 [sub_resource type="Theme" id="Theme_5rsdc"]
 default_font = ExtResource("1_jwknv")
@@ -84,6 +87,19 @@ offset_bottom = 338.0
 texture = ExtResource("6_pwpy2")
 expand_mode = 1
 
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_lh18p")
+autoplay = true
+parameters/looping = false
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_0jvwq")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_xq75o")
+
+[connection signal="mouse_entered" from="restartButton" to="restartButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="restartButton" to="restartButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="mainMenuButton" to="mainMenuButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="mainMenuButton" to="restartButton" method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="mainMenuButton" to="mainMenuButton" method="_on_pressed"]

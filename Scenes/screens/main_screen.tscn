@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxt543jrlj38h"]
+[gd_scene load_steps=13 format=3 uid="uid://cxt543jrlj38h"]
 
 [ext_resource type="FontFile" uid="uid://cv1akwkp83105" path="res://fonts/Bungee-Regular.ttf" id="1_0q5o4"]
 [ext_resource type="Texture2D" uid="uid://c7x4vethhoyyk" path="res://images/360_F_779107802_pA1dmPZ9dhqOSqMW8dkTteZF7Ey3QZAM.jpg" id="1_gc3xv"]
 [ext_resource type="Script" path="res://Scenes/screens/play_button.gd" id="3_0lany"]
 [ext_resource type="FontFile" uid="uid://b4kme1rrh34sr" path="res://fonts/BebasNeue-Regular.ttf" id="3_i4xaf"]
+[ext_resource type="AudioStream" uid="uid://wjgl0rwwmg6i" path="res://music/buttons/hover_cut.mp3" id="4_wd3ng"]
+[ext_resource type="AudioStream" uid="uid://fkmjx7q4h02t" path="res://music/buttons/select_cut.mp3" id="5_fedsi"]
+[ext_resource type="AudioStream" uid="uid://eq38py58xnnt" path="res://music/main_screen/medieval-ambient-236809.mp3" id="5_loyb8"]
 
 [sub_resource type="Theme" id="Theme_f1ixu"]
 default_font = ExtResource("1_0q5o4")
@@ -53,6 +56,12 @@ theme_override_colors/font_color = Color(0.988235, 1, 0.992157, 1)
 text = "JUGAR"
 flat = true
 script = ExtResource("3_0lany")
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="playButton"]
+stream = ExtResource("5_fedsi")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="playButton"]
+stream = ExtResource("4_wd3ng")
 
 [node name="ControlesPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -279,4 +288,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "⭠
 "
 
+[node name="backgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_loyb8")
+autoplay = true
+parameters/looping = true
+
+[connection signal="mouse_entered" from="playButton" to="playButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="playButton" to="playButton" method="_on_pressed"]

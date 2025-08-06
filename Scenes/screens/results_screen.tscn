@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ch6g1iubhnpa7"]
+[gd_scene load_steps=15 format=3 uid="uid://ch6g1iubhnpa7"]
 
 [ext_resource type="Script" path="res://Scenes/screens/results_screen.gd" id="1_20rqi"]
 [ext_resource type="Texture2D" uid="uid://b4j2j08w2sobv" path="res://images/results/b_mark.png" id="2_h0q2c"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://Scenes/screens/next_levelt_button.gd" id="4_mmf5w"]
 [ext_resource type="Script" path="res://Scenes/screens/main_menu_button.gd" id="4_ntq3f"]
 [ext_resource type="FontFile" uid="uid://nllk3g0qlkkk" path="res://fonts/Pixelout.ttf" id="5_klsak"]
+[ext_resource type="AudioStream" uid="uid://fkmjx7q4h02t" path="res://music/buttons/select_cut.mp3" id="6_42wtg"]
+[ext_resource type="AudioStream" uid="uid://wjgl0rwwmg6i" path="res://music/buttons/hover_cut.mp3" id="7_ikp43"]
+[ext_resource type="AudioStream" uid="uid://3nxf3wmy4r38" path="res://music/calification/c_mark.mp3" id="7_tsfjo"]
 
 [sub_resource type="Theme" id="Theme_f1ixu"]
 default_font = ExtResource("2_p1w40")
@@ -157,6 +160,19 @@ offset_bottom = 119.0
 theme = SubResource("Theme_3habc")
 theme_override_colors/font_color = Color(0.647059, 0.180392, 0, 1)
 
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_tsfjo")
+volume_db = -7.86
+parameters/looping = false
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_42wtg")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ikp43")
+
+[connection signal="mouse_entered" from="nextLeveltButton" to="nextLeveltButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="nextLeveltButton" to="nextLeveltButton" method="_on_pressed"]
+[connection signal="mouse_entered" from="mainMenuButton" to="mainMenuButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="mainMenuButton" to="nextLeveltButton" method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="mainMenuButton" to="mainMenuButton" method="_on_pressed"]
