@@ -1,8 +1,9 @@
-[gd_scene load_steps=63 format=3 uid="uid://b2vig01w1i4ia"]
+[gd_scene load_steps=64 format=3 uid="uid://b2vig01w1i4ia"]
 
 [ext_resource type="Texture2D" uid="uid://ps4gpsapklbd" path="res://Main Characters/generic_char_v0.2/png/blue/char_blue_1.png" id="1_ar5rw"]
 [ext_resource type="Script" path="res://Scenes/mc.gd" id="1_o78o0"]
 [ext_resource type="Texture2D" uid="uid://yokdpa4eeg5w" path="res://Main Characters/generic_char_v0.2/png/blue/char_blue_2.png" id="2_qwrst"]
+[ext_resource type="AudioStream" uid="uid://dw8g32tmdvhk7" path="res://music/main_character/damage.mp3" id="4_bj0km"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_koeko"]
 atlas = ExtResource("1_ar5rw")
@@ -523,8 +524,10 @@ wait_time = 0.3
 [node name="FLOOR" type="RayCast2D" parent="."]
 target_position = Vector2(0, 28.5)
 
-[node name="just_damaged" type="Timer" parent="."]
-one_shot = true
+[node name="sounds" type="Node2D" parent="."]
+
+[node name="taking_damage" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("4_bj0km")
 
 [connection signal="animation_finished" from="animaciones" to="." method="animation_finished"]
 [connection signal="timeout" from="CT" to="." method="_on_ct_timeout"]
