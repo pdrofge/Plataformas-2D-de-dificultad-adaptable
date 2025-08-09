@@ -1,9 +1,14 @@
-[gd_scene load_steps=64 format=3 uid="uid://b2vig01w1i4ia"]
+[gd_scene load_steps=69 format=3 uid="uid://b2vig01w1i4ia"]
 
 [ext_resource type="Texture2D" uid="uid://ps4gpsapklbd" path="res://Main Characters/generic_char_v0.2/png/blue/char_blue_1.png" id="1_ar5rw"]
 [ext_resource type="Script" path="res://Scenes/mc.gd" id="1_o78o0"]
 [ext_resource type="Texture2D" uid="uid://yokdpa4eeg5w" path="res://Main Characters/generic_char_v0.2/png/blue/char_blue_2.png" id="2_qwrst"]
 [ext_resource type="AudioStream" uid="uid://dw8g32tmdvhk7" path="res://music/main_character/damage.mp3" id="4_bj0km"]
+[ext_resource type="AudioStream" uid="uid://kvydiwgmret6" path="res://music/main_character/jump_cut.mp3" id="5_787p8"]
+[ext_resource type="AudioStream" uid="uid://cwkb41q6tq5fg" path="res://music/main_character/cartoon_dash.mp3" id="6_fel7q"]
+[ext_resource type="AudioStream" uid="uid://dkwe60ehwsh3a" path="res://music/main_character/holding.mp3" id="7_m76o8"]
+[ext_resource type="AudioStream" uid="uid://bakle6keggtk3" path="res://music/main_character/checkpoint.mp3" id="8_ptvhe"]
+[ext_resource type="AudioStream" uid="uid://b3jengy7t5vy6" path="res://music/main_character/breaking.mp3" id="9_012w5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_koeko"]
 atlas = ExtResource("1_ar5rw")
@@ -529,7 +534,28 @@ target_position = Vector2(0, 28.5)
 [node name="taking_damage" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("4_bj0km")
 
+[node name="jump" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("5_787p8")
+volume_db = 18.139
+
+[node name="dash" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("6_fel7q")
+
+[node name="holding" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("7_m76o8")
+volume_db = 8.465
+
+[node name="checkpoint" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("8_ptvhe")
+
+[node name="breaking" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("9_012w5")
+volume_db = -10.884
+
+[node name="damage_cooldown" type="Timer" parent="."]
+
 [connection signal="animation_finished" from="animaciones" to="." method="animation_finished"]
 [connection signal="timeout" from="CT" to="." method="_on_ct_timeout"]
 [connection signal="timeout" from="sliding_time" to="." method="_on_sliding_time_timeout"]
 [connection signal="timeout" from="dash_time" to="." method="_on_dash_time_timeout"]
+[connection signal="timeout" from="damage_cooldown" to="." method="_on_damage_cooldown_timeout"]

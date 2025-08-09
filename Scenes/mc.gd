@@ -24,8 +24,10 @@ var dash_boost = 1.25
 var hitting1:bool = false
 var hitting2:bool = false
 var hitting_wr:bool = false
+var damage_animation:bool = false
 var max_lifes:int = 3 
 var lifes:int = 3 
+var holding:bool = false
 var checkpoint_manager
 var initial_pos
 
@@ -45,14 +47,15 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	#print($HIT3.target_position)
+	#taking damage
 	if $FLOOR.get_collider():
 		var collider = $FLOOR.get_collider().name
 		if collider == "spike": #&& lifes == 3 BORRARLO tras probar que funciona
-			var damage_sound = get_node("sounds/taking_damage")
-			if not damage_sound.playing and lifes > 1:
-				damage_sound.play()
-			_changeLifes(-1)
+		#	var damage_sound = get_node("sounds/taking_damage")
+		#	if not damage_sound.playing and lifes > 1:
+		#		damage_sound.play()
 			
+			_changeLifes(-1)
 	# Add gravity
 	if is_on_floor():
 		leaved_floor = false
@@ -98,6 +101,8 @@ func _physics_process(delta: float) -> void:
 		down = false
 		if Input.is_action_just_pressed("ui_text_delete") and count_dashes < max_dashes_in_air and direction and not pared:
 			dash = true
+			var dash_sound = get_node("sounds/dash")
+			dash_sound.play()
 			dash_end = false
 			count_dashes += 1
 			$dash_time.start()  # Inicia el temporizador de dash
@@ -117,6 +122,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and can_jump():
 		if count_jumps == 1:
 			allow_animation = false
+			var double_jump_sound = get_node("sounds/jump")
+			double_jump_sound.play()
 			$animaciones.play("double_jump")
 		count_jumps += 1
 		if down:
@@ -132,6 +139,7 @@ func _physics_process(delta: float) -> void:
 		direction = Input.get_axis("ui_left", "ui_right")
 
 	if dash:
+		
 		if direction != 0:
 			velocity.x = direction * SPEED * dash_boost  # Aplica el boost de velocidad en dash
 		
@@ -159,10 +167,14 @@ func _physics_process(delta: float) -> void:
 				var break_effect = preload("res://Scenes/BlockBreakEffect.tscn").instantiate()
 				break_effect.global_position = tilemap.to_global(world_pos)
 				get_tree().current_scene.add_child(break_effect)
-	
+				var break_sound = get_node("sounds/breaking")
+				if not break_sound.playing:
+					break_sound.play()
+			
 	# Wall Jump detection
 	if $WJ.get_collider():
 		var collider = $WJ.get_collider()
+		var holding_sound = get_node("sounds/holding")
 		if collider.name == "Walljump_map":
 			if velocity.y > 0:
 				velocity.y = 0
@@ -170,8 +182,12 @@ func _physics_process(delta: float) -> void:
 				pared = true
 				count_dashes = 0
 				allow_animation = true	
+				if holding == false:
+					holding = true
+					holding_sound.play()
 		else:
 			pared = false
+			holding = false
 	else:
 		pared = false
 
@@ -311,6 +327,8 @@ func _changeLifes(number: int):
 		var restar = number * -1
 		if lifes - restar > 0:
 			lifes = lifes - restar
+			var damage_sound = get_node("sounds/taking_damage")
+			damage_sound.play()
 			position = checkpoint_manager.last_location
 		else:
 			lifes = 0
@@ -327,5 +345,8 @@ func checkLifes():
 	if lifes == 0:
 		GameManager.set_last_scene(get_tree().current_scene.scene_file_path)
 		get_tree().change_scene_to_file("res://Scenes/screens/game_over_menu.tscn")	
+	
+	#position = checkpoint_manager.last_location
+	#damage_animation = false
 	#print("Tienes " + str(lifes) + " vidas")
 	#habría que moverlo al anterior checkpoint en caso de tener 1 o más vidas
