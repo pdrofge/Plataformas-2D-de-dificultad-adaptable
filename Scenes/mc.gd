@@ -28,6 +28,8 @@ var is_damaged: bool = false
 var max_lifes:int = 3 
 var lifes:int = 3 
 var holding:bool = false
+var level_finished:bool = false
+var course_clear_played: bool = false
 var checkpoint_manager
 var initial_pos
 
@@ -53,6 +55,17 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		$animaciones.play("fallen")
 		return
+		
+	if level_finished:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		$animaciones.play("celebrating")
+		var finish_sound = get_node("sounds/course_clear")
+		if not finish_sound.playing and not course_clear_played:
+			finish_sound.play()
+			course_clear_played = true
+
+		return	
 	
 	if $FLOOR.get_collider():
 		var collider = $FLOOR.get_collider().name

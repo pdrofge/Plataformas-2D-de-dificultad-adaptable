@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://b2vig01w1i4ia"]
+[gd_scene load_steps=91 format=3 uid="uid://b2vig01w1i4ia"]
 
 [ext_resource type="Texture2D" uid="uid://ps4gpsapklbd" path="res://Main Characters/generic_char_v0.2/png/blue/char_blue_1.png" id="1_ar5rw"]
 [ext_resource type="Script" path="res://Scenes/mc.gd" id="1_o78o0"]
@@ -9,10 +9,47 @@
 [ext_resource type="AudioStream" uid="uid://dkwe60ehwsh3a" path="res://music/main_character/holding.mp3" id="7_m76o8"]
 [ext_resource type="AudioStream" uid="uid://bakle6keggtk3" path="res://music/main_character/checkpoint.mp3" id="8_ptvhe"]
 [ext_resource type="AudioStream" uid="uid://b3jengy7t5vy6" path="res://music/main_character/breaking.mp3" id="9_012w5"]
+[ext_resource type="AudioStream" uid="uid://wecb7upmrc04" path="res://music/main_character/course_clear.mp3" id="10_na5vk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_koeko"]
 atlas = ExtResource("1_ar5rw")
 region = Rect2(336, 168, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_he5v2"]
+atlas = ExtResource("1_ar5rw")
+region = Rect2(280, 56, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr4mq"]
+atlas = ExtResource("1_ar5rw")
+region = Rect2(0, 448, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6nhu"]
+atlas = ExtResource("1_ar5rw")
+region = Rect2(56, 448, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyfy5"]
+atlas = ExtResource("1_ar5rw")
+region = Rect2(112, 448, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrseq"]
+atlas = ExtResource("1_ar5rw")
+region = Rect2(168, 448, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyu2f"]
+atlas = ExtResource("1_ar5rw")
+region = Rect2(224, 448, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csoiy"]
+atlas = ExtResource("1_ar5rw")
+region = Rect2(280, 448, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26wfh"]
+atlas = ExtResource("1_ar5rw")
+region = Rect2(336, 448, 56, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niw55"]
+atlas = ExtResource("1_ar5rw")
+region = Rect2(392, 448, 56, 56)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_emg2h"]
 atlas = ExtResource("1_ar5rw")
@@ -294,6 +331,38 @@ animations = [{
 }],
 "loop": false,
 "name": &"big_jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_he5v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr4mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6nhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyfy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrseq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyu2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csoiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26wfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niw55")
+}],
+"loop": false,
+"name": &"celebrating",
 "speed": 5.0
 }, {
 "frames": [{
@@ -581,9 +650,9 @@ script = ExtResource("1_o78o0")
 [node name="animaciones" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_pm3hx")
-animation = &"fallen"
-frame = 5
-frame_progress = 0.797957
+animation = &"celebrating"
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 13)
@@ -643,6 +712,9 @@ stream = ExtResource("8_ptvhe")
 stream = ExtResource("9_012w5")
 volume_db = -10.884
 
+[node name="course_clear" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("10_na5vk")
+
 [node name="damage_cooldown" type="Timer" parent="."]
 wait_time = 1.3
 one_shot = true
@@ -651,9 +723,13 @@ one_shot = true
 wait_time = 0.8
 one_shot = true
 
+[node name="course_clear_time" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="animaciones" to="." method="animation_finished"]
 [connection signal="timeout" from="CT" to="." method="_on_ct_timeout"]
 [connection signal="timeout" from="sliding_time" to="." method="_on_sliding_time_timeout"]
 [connection signal="timeout" from="dash_time" to="." method="_on_dash_time_timeout"]
 [connection signal="timeout" from="damage_cooldown" to="." method="_on_damage_cooldown_timeout"]
 [connection signal="timeout" from="damage_anim_time" to="." method="_on_damage_cooldown_timeout"]
+[connection signal="timeout" from="course_clear_time" to="." method="_on_damage_cooldown_timeout"]
