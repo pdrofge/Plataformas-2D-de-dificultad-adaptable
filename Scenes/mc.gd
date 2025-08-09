@@ -24,7 +24,7 @@ var dash_boost = 1.25
 var hitting1:bool = false
 var hitting2:bool = false
 var hitting_wr:bool = false
-var damage_animation:bool = false
+var is_damaged: bool = false
 var max_lifes:int = 3 
 var lifes:int = 3 
 var holding:bool = false
@@ -48,9 +48,15 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	#print($HIT3.target_position)
 	#taking damage
+	if is_damaged:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		$animaciones.play("fallen")
+		return
+	
 	if $FLOOR.get_collider():
 		var collider = $FLOOR.get_collider().name
-		if collider == "spike": #&& lifes == 3 BORRARLO tras probar que funciona
+		if collider == "spike"  && $damage_cooldown.is_stopped(): #&& lifes == 3 BORRARLO tras probar que funciona
 		#	var damage_sound = get_node("sounds/taking_damage")
 		#	if not damage_sound.playing and lifes > 1:
 		#		damage_sound.play()
@@ -323,16 +329,18 @@ func _on_dash_time_timeout() -> void:
 	
 	
 func _changeLifes(number: int):
+	$damage_cooldown.start()
+	$damage_anim_time.start()
 	if number < 0:
 		var restar = number * -1
-		if lifes - restar > 0:
-			lifes = lifes - restar
-			var damage_sound = get_node("sounds/taking_damage")
-			damage_sound.play()
-			position = checkpoint_manager.last_location
-		else:
-			lifes = 0
-			position = initial_pos
+		lifes = lifes - restar
+		var damage_sound = get_node("sounds/taking_damage")
+		damage_sound.play()
+		is_damaged = true
+		await $damage_anim_time.timeout
+		position = checkpoint_manager.last_location
+		is_damaged = false
+		
 	else:
 		pass
 	checkLifes()	

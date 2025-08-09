@@ -15729,4 +15729,4 @@ layer_0/tile_data = PackedInt32Array(852401, 1179648, 9, 917937, 1179648, 10, 85
 stream = ExtResource("20_iv3vs")
 volume_db = -5.442
 autoplay = true
-parameters/looping = false
+parameters/looping = true
