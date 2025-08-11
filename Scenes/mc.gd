@@ -69,7 +69,9 @@ func _physics_process(delta: float) -> void:
 	
 	if $FLOOR.get_collider():
 		var collider = $FLOOR.get_collider().name
-		if collider == "spike"  && $damage_cooldown.is_stopped(): #&& lifes == 3 BORRARLO tras probar que funciona
+		if collider == "health":
+			_changeLifes(max_lifes - lifes)
+		elif collider == "spike"  && $damage_cooldown.is_stopped(): #&& lifes == 3 BORRARLO tras probar que funciona
 		#	var damage_sound = get_node("sounds/taking_damage")
 		#	if not damage_sound.playing and lifes > 1:
 		#		damage_sound.play()
@@ -354,8 +356,11 @@ func _changeLifes(number: int):
 		position = checkpoint_manager.last_location
 		is_damaged = false
 		
-	else:
-		pass
+	elif number > 0:
+		lifes = lifes + number
+		var healing_sound = get_node("sounds/healing")
+		healing_sound.play()
+		
 	checkLifes()	
 	
 func checkLifes():

@@ -2,16 +2,9 @@ extends Node2D
 
 # Diccionario para mapear nombres de TileMap a MarginContainers
 @onready var tutorial_texts := {
-	"TextoInicio": $InicioTutorial,
-	"TextoDobleSalto": $DobleSalto,
-	"TextoWalljump": $Walljump,
-	"TextoHighjump": $Highjump,
-	"TextoJumpAndDash": $JumpAndDash,
-	"TextoAtacar1" : $Attack1,
-	"TextoAtacar2" : $Attack2,
-	"TextoLastZone" : $LastZoneTutorial,
-	"TextoCP" : $CPTutorial,
-	"TextoFinalNivel" : $FinTutorial
+	"tutorialPlatMoviles": $platmovilesExplicacion,
+	"tutorialHealing": $curarseExplicacion,
+	"tutorialcaminos": $caminosExplicacionTexto
 }
 
 var player: Node2D  

@@ -13693,7 +13693,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cjtxj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0h6wn"]
 texture = ExtResource("15_wxko6")
 1:1/0 = 0
 2:1/0 = 0
@@ -13767,7 +13767,7 @@ texture = ExtResource("15_wxko6")
 37:3/0 = 0
 2:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rrjgs"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b7mtg"]
 texture = ExtResource("16_0h2b5")
 1:1/0 = 0
 5:1/0 = 0
@@ -13875,13 +13875,13 @@ texture = ExtResource("16_0h2b5")
 97:3/0 = 0
 101:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x43l2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ixtmy"]
 texture = ExtResource("17_on4v4")
 1:1/0 = 0
 1:2/0 = 0
 1:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ylr0x"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jvduu"]
 texture = ExtResource("1_d6575")
 0:0/0 = 0
 1:0/0 = 0
@@ -14034,10 +14034,10 @@ texture = ExtResource("1_d6575")
 
 [sub_resource type="TileSet" id="TileSet_bwst6"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_cjtxj")
-sources/1 = SubResource("TileSetAtlasSource_rrjgs")
-sources/2 = SubResource("TileSetAtlasSource_x43l2")
-sources/3 = SubResource("TileSetAtlasSource_ylr0x")
+sources/0 = SubResource("TileSetAtlasSource_0h6wn")
+sources/1 = SubResource("TileSetAtlasSource_b7mtg")
+sources/2 = SubResource("TileSetAtlasSource_ixtmy")
+sources/3 = SubResource("TileSetAtlasSource_jvduu")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u3ec5"]
 texture = ExtResource("1_d6575")
