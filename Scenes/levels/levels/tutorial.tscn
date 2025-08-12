@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://d2tfr40apyhvh" path="res://Terrain/tilemap.png" id="18_jhy4j"]
 [ext_resource type="AudioStream" uid="uid://d1byxqivgqlbf" path="res://music/levels/tutorial/tutorial.mp3" id="20_iv3vs"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l4fna"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7px0f"]
 texture = ExtResource("18_jhy4j")
 0:0/0 = 0
 1:0/0 = 0
@@ -256,7 +256,7 @@ texture = ExtResource("18_jhy4j")
 21:9/0 = 0
 22:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdl8p"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihtdb"]
 texture = ExtResource("1_d6575")
 0:0/0 = 0
 1:0/0 = 0
@@ -409,8 +409,8 @@ texture = ExtResource("1_d6575")
 
 [sub_resource type="TileSet" id="TileSet_552ui"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_l4fna")
-sources/1 = SubResource("TileSetAtlasSource_tdl8p")
+sources/0 = SubResource("TileSetAtlasSource_7px0f")
+sources/1 = SubResource("TileSetAtlasSource_ihtdb")
 
 [sub_resource type="Theme" id="Theme_x6q1p"]
 default_font = ExtResource("4_i1m0e")
@@ -15194,7 +15194,7 @@ sources/0 = SubResource("TileSetAtlasSource_8qulj")
 [node name="end_of_level" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_552ui")
 format = 2
-layer_0/tile_data = PackedInt32Array(852417, 851969, 5, 917953, 851969, 6, 852418, 917505, 5, 917954, 917505, 6)
+layer_0/tile_data = PackedInt32Array(852417, 851969, 5, 852418, 917505, 5, 917954, 917505, 6, 917953, 851969, 6)
 script = ExtResource("2_taamb")
 
 [node name="Textos" type="Node2D" parent="."]
