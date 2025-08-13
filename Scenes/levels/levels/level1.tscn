@@ -3529,6 +3529,21 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="Animation" id="Animation_e0rpb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_ostog"]
 resource_name = "plat"
 length = 4.0
@@ -3544,21 +3559,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0.0, 1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_e0rpb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dpt6s"]
@@ -4305,7 +4305,7 @@ curve = SubResource("Curve2D_k7gjt")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="plat9"]
 position = Vector2(8079.08, 367.4)
-rotation = -0.000660547
+rotation = -0.00066067
 
 [node name="moving_platform" parent="plat9/PathFollow2D" instance=ExtResource("1_w1x34")]
 position = Vector2(2.0293, 0.00134277)
@@ -4322,11 +4322,11 @@ speed_scale = 0.35
 [node name="end_of_level_1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_uf4vk")
 format = 2
-layer_0/tile_data = PackedInt32Array(852417, 851969, 5, 917953, 851969, 6, 852418, 917505, 5, 917954, 917505, 6, -196050, 851968, 6, -130514, 851968, 7, 1049146, 851968, 6, 1114682, 851968, 7, -64978, 851969, 4, -64977, 851969, 4, 1180218, 851969, 4, 1180219, 851969, 4)
+layer_0/tile_data = PackedInt32Array(852417, 851969, 5, 917953, 851969, 6, 852418, 917505, 5, 917954, 917505, 6, -64977, 851969, 4, -64978, 851969, 4, -130514, 851968, 7, -196050, 851968, 6)
 script = ExtResource("18_7gjmd")
 
 [node name="end_of_level_2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_uf4vk")
 format = 2
-layer_0/tile_data = PackedInt32Array(852417, 851969, 5, 917953, 851969, 6, 852418, 917505, 5, 917954, 917505, 6)
+layer_0/tile_data = PackedInt32Array(852417, 851969, 5, 917953, 851969, 6, 852418, 917505, 5, 917954, 917505, 6, 1180219, 851969, 4, 1180220, 851969, 4, 1180218, 851969, 4, 1049146, 851968, 6, 1114682, 851968, 7)
 script = ExtResource("18_7gjmd")

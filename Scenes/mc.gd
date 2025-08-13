@@ -57,6 +57,7 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if level_finished:
+		print(GameManager.path_selected)
 		velocity = Vector2.ZERO
 		move_and_slide()
 		$animaciones.play("celebrating")

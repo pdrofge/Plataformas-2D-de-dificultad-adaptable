@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://dbxdj1dx6bbf8" path="res://Terrain/Terrain (16x16).png" id="1_d6575"]
 [ext_resource type="Texture2D" uid="uid://dblne1xrvcfhx" path="res://Background/cave/layers/last_layer.png" id="1_g717x"]
 [ext_resource type="Texture2D" uid="uid://d16iipwf2dh3c" path="res://Background/cave/layers/background.png" id="1_io50g"]
-[ext_resource type="Script" path="res://Scenes/levels/levels/node_2d.gd" id="1_ruqqh"]
 [ext_resource type="Texture2D" uid="uid://3tnn0s5ipfgt" path="res://Terrain/Textures-16.png" id="2_6dgeb"]
 [ext_resource type="Texture2D" uid="uid://c74dbta036vbg" path="res://Background/cave/layers/middleground.png" id="2_haj20"]
-[ext_resource type="Script" path="res://Scenes/levels/levels/end_of_level.gd" id="2_taamb"]
 [ext_resource type="PackedScene" uid="uid://b2vig01w1i4ia" path="res://Scenes/main_character.tscn" id="3_t2k2j"]
+[ext_resource type="Script" path="res://Scenes/levels/levels/end1.gd" id="3_vw3cm"]
 [ext_resource type="FontFile" uid="uid://0j813wsbml4w" path="res://fonts/Pixelmax-Regular.otf" id="4_i1m0e"]
+[ext_resource type="Script" path="res://Scenes/levels/levels/textos.gd" id="4_ucra5"]
 [ext_resource type="Texture2D" uid="uid://cpr1evvc1c7t0" path="res://Traps/Spikes/Idle.png" id="9_8ksrl"]
 [ext_resource type="Texture2D" uid="uid://bqobdxfqugdys" path="res://Menu/HUD/hud_heartFull.png" id="10_e5o5l"]
 [ext_resource type="Script" path="res://Scenes/levels/levels/hud.gd" id="10_tv7lp"]
@@ -15195,10 +15195,10 @@ sources/0 = SubResource("TileSetAtlasSource_8qulj")
 tile_set = SubResource("TileSet_552ui")
 format = 2
 layer_0/tile_data = PackedInt32Array(852417, 851969, 5, 852418, 917505, 5, 917954, 917505, 6, 917953, 851969, 6)
-script = ExtResource("2_taamb")
+script = ExtResource("3_vw3cm")
 
 [node name="Textos" type="Node2D" parent="."]
-script = ExtResource("1_ruqqh")
+script = ExtResource("4_ucra5")
 
 [node name="InicioTutorial" type="MarginContainer" parent="Textos"]
 visible = false
