@@ -15,11 +15,26 @@ func _ready():
 		else:
 			$imagenResultados.texture = load("res://images/results/b_mark.png")
 			$mark.text = "B"
-		$lifesResult.text = str(lifes)
 		$pathResult.text = "-"
 	else:
-		pass
-		
+		$pathResult.text = path_selected
+		if path_selected == "A":
+			if lifes == max_lifes || lifes == max_lifes - 1:
+				$imagenResultados.texture = load("res://images/results/a_mark.png")
+				$mark.text = "A"
+			else:
+				$imagenResultados.texture = load("res://images/results/b_mark.png")
+				$mark.text = "B"
+		else:
+				if lifes == max_lifes || lifes == max_lifes - 1:
+					$imagenResultados.texture = load("res://images/results/b_mark.png")
+					$mark.text = "B"
+				else:
+					$imagenResultados.texture = load("res://images/results/c_mark.png")
+					$mark.text = "C"
+			
+	
+	$lifesResult.text = str(lifes)
 	
 	if $mark.text == "A":
 		$music.stream = load("res://music/calification/a_mark.mp3")

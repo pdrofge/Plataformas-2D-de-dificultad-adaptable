@@ -15725,7 +15725,7 @@ tile_set = SubResource("TileSet_7ir5v")
 format = 2
 layer_0/tile_data = PackedInt32Array(852401, 1179648, 9, 917937, 1179648, 10, 852402, 1245184, 9, 917938, 1245184, 10)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_iv3vs")
 volume_db = -5.442
 autoplay = true
