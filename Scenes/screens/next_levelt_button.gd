@@ -15,6 +15,8 @@ func _on_pressed() -> void:
 		if this_level == "res://Scenes/levels/levels/tutorial.tscn":
 			get_tree().change_scene_to_file("res://Scenes/levels/levels/level1.tscn")
 		elif this_level == "res://Scenes/levels/levels/level1.tscn":
+			get_tree().change_scene_to_file("res://Scenes/levels/levels/level2.tscn")
+		elif this_level == "res://Scenes/levels/levels/level2.tscn":
 			pass
 	
 

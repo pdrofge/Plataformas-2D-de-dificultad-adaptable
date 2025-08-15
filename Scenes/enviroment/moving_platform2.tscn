@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://yhot32opai7y"]
+[gd_scene load_steps=4 format=3 uid="uid://o2y42fm5ilgh"]
 
 [ext_resource type="Script" path="res://Scenes/enviroment/moving_platform.gd" id="1_7dsrt"]
 [ext_resource type="Texture2D" uid="uid://dbxdj1dx6bbf8" path="res://Terrain/Terrain (16x16).png" id="1_uq46e"]
@@ -14,8 +14,8 @@ position = Vector2(7, 0)
 shape = SubResource("RectangleShape2D_rrrew")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(6.34717, 3.07812)
-scale = Vector2(2.41543, 0.935096)
+position = Vector2(6, -5.96046e-08)
+scale = Vector2(2.41848, 1.625)
 texture = ExtResource("1_uq46e")
 region_enabled = true
-region_rect = Rect2(193.349, 1.25274, 45.1086, 13.8796)
+region_rect = Rect2(272.671, 0.513428, 46.9048, 4.06102)
