@@ -3573,7 +3573,7 @@ _data = {
 "plat": SubResource("Animation_ostog")
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pk0hv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1b24"]
 texture = ExtResource("5_o0vwg")
 0:0/0 = 0
 1:0/0 = 0
@@ -3806,7 +3806,7 @@ texture = ExtResource("5_o0vwg")
 21:9/0 = 0
 22:9/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rus4w"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8libn"]
 texture = ExtResource("2_mt71h")
 0:0/0 = 0
 1:0/0 = 0
@@ -3966,8 +3966,8 @@ texture = ExtResource("2_mt71h")
 
 [sub_resource type="TileSet" id="TileSet_uf4vk"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_pk0hv")
-sources/1 = SubResource("TileSetAtlasSource_rus4w")
+sources/0 = SubResource("TileSetAtlasSource_w1b24")
+sources/1 = SubResource("TileSetAtlasSource_8libn")
 
 [node name="Node" type="Node"]
 
