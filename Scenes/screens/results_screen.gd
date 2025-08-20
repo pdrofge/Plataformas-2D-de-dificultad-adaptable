@@ -38,8 +38,11 @@ func _ready():
 	
 	if $mark.text == "A":
 		$music.stream = load("res://music/calification/a_mark.mp3")
+		GameManager.result = 10
 	elif $mark.text == "B":
 		$music.stream = load("res://music/calification/b_mark.mp3")
+		GameManager.result = 5
 	else:
 		$music.stream = load("res://music/calification/c_mark.mp3")
+		GameManager.result = 0
 	$music.play()

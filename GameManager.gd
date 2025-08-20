@@ -5,6 +5,7 @@ var last_scene_path : String = ""
 var path_selected : String = ""
 var lifes
 var max_lifes
+var result
 
 
 func set_last_scene(path : String) -> void:

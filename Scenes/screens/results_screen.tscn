@@ -59,7 +59,7 @@ offset_right = 395.0
 offset_bottom = 577.0
 theme = SubResource("Theme_f1ixu")
 theme_override_colors/font_hover_color = Color(0.337255, 0.517647, 0.568627, 1)
-text = "CONTINUAR"
+text = "GUARDAR Y CONTINUAR"
 flat = true
 script = ExtResource("4_mmf5w")
 
