@@ -35,6 +35,7 @@ func _on_pressed() -> void:
 			Global.game_data["scores"][current_level] = GameManager.result
 			Global.save_game()
 			print("Datos guardados en Global:", Global.game_data)
+			get_tree().change_scene_to_file("res://Scenes/screens/final_screen.tscn")
 
 
 func _on_mouse_entered() -> void:

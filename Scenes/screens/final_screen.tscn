@@ -1,0 +1,120 @@
+[gd_scene load_steps=13 format=3 uid="uid://gs2oq33afyjj"]
+
+[ext_resource type="Script" path="res://Scenes/screens/final_screen.gd" id="1_q25td"]
+[ext_resource type="Texture2D" uid="uid://b4j2j08w2sobv" path="res://images/results/b_mark.png" id="2_7wpxy"]
+[ext_resource type="FontFile" uid="uid://cv1akwkp83105" path="res://fonts/Bungee-Regular.ttf" id="3_s03y1"]
+[ext_resource type="Script" path="res://Scenes/screens/main_menu_button.gd" id="5_b4bt5"]
+[ext_resource type="FontFile" uid="uid://cr46c87y74alf" path="res://fonts/AlfaSlabOne-Regular.ttf" id="6_shocq"]
+[ext_resource type="FontFile" uid="uid://nllk3g0qlkkk" path="res://fonts/Pixelout.ttf" id="6_ve7ng"]
+[ext_resource type="AudioStream" uid="uid://3nxf3wmy4r38" path="res://music/calification/c_mark.mp3" id="7_l6thk"]
+[ext_resource type="AudioStream" uid="uid://fkmjx7q4h02t" path="res://music/buttons/select_cut.mp3" id="8_ld7w3"]
+[ext_resource type="AudioStream" uid="uid://wjgl0rwwmg6i" path="res://music/buttons/hover_cut.mp3" id="9_c21tv"]
+
+[sub_resource type="Theme" id="Theme_lxms4"]
+default_font = ExtResource("3_s03y1")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_x6jwf"]
+default_font = ExtResource("6_ve7ng")
+default_font_size = 49
+
+[sub_resource type="Theme" id="Theme_3habc"]
+default_font = ExtResource("6_ve7ng")
+default_font_size = 22
+
+[node name="final_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q25td")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="imagenResultados" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 651.0
+texture = ExtResource("2_7wpxy")
+expand_mode = 1
+
+[node name="mainMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 557.0
+offset_right = 393.0
+offset_bottom = 636.0
+theme = SubResource("Theme_lxms4")
+theme_override_colors/font_hover_color = Color(0.329412, 0.517647, 0.560784, 1)
+text = "MENÚ PRINCIPAL"
+flat = true
+script = ExtResource("5_b4bt5")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 17.0
+offset_right = 502.0
+offset_bottom = 338.0
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 311.0
+offset_bottom = 55.0
+theme = SubResource("Theme_x6jwf")
+theme_override_colors/font_color = Color(0.984314, 0.968627, 0.819608, 1)
+text = "RESULTADOS FINALES"
+
+[node name="thanksLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 90.0
+offset_right = 536.0
+offset_bottom = 140.0
+scale = Vector2(0.75, 0.75)
+theme = SubResource("Theme_x6jwf")
+theme_override_colors/font_color = Color(0.984314, 0.968627, 0.819608, 1)
+theme_override_fonts/font = ExtResource("6_shocq")
+text = "¡GRACIAS POR JUGAR!"
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 47.0
+offset_right = 224.0
+offset_bottom = 77.0
+theme = SubResource("Theme_3habc")
+theme_override_colors/font_color = Color(0.646758, 0.181004, 0, 1)
+text = "PUNTUACIÓN FINAL:"
+
+[node name="mark" type="Label" parent="."]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 53.0
+offset_right = 491.0
+offset_bottom = 83.0
+theme = SubResource("Theme_3habc")
+theme_override_colors/font_color = Color(0.647059, 0.180392, 0, 1)
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_l6thk")
+volume_db = -7.86
+parameters/looping = false
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ld7w3")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_c21tv")
+
+[connection signal="mouse_entered" from="mainMenuButton" to="mainMenuButton" method="_on_mouse_entered"]
+[connection signal="pressed" from="mainMenuButton" to="mainMenuButton" method="_on_pressed"]
