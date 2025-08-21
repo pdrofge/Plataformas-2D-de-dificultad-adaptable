@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://ckl7l3o3so7wv"]
+[gd_scene load_steps=92 format=3 uid="uid://ckl7l3o3so7wv"]
 
 [ext_resource type="Texture2D" uid="uid://cpr1evvc1c7t0" path="res://Traps/Spikes/Idle.png" id="1_1uymw"]
 [ext_resource type="PackedScene" uid="uid://o2y42fm5ilgh" path="res://Scenes/enviroment/moving_platform2.tscn" id="1_w1x34"]
@@ -17,9 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://bqobdxfqugdys" path="res://Menu/HUD/hud_heartFull.png" id="15_7ksal"]
 [ext_resource type="Texture2D" uid="uid://dc4vh8a4n0tpf" path="res://Menu/HUD/hud_heartEmpty.png" id="16_3ac7n"]
 [ext_resource type="Texture2D" uid="uid://chrbj0ktsskaf" path="res://Items/Fruits/Apple.png" id="17_bkp12"]
+[ext_resource type="PackedScene" uid="uid://b3vmuu76helpi" path="res://Scenes/popups/pop_up_pausa.tscn" id="17_k68vh"]
 [ext_resource type="Script" path="res://Scenes/levels/levels/end_of_level.gd" id="18_7gjmd"]
+[ext_resource type="Script" path="res://Scenes/levels/levels/button.gd" id="18_bw7nw"]
 [ext_resource type="Texture2D" uid="uid://cnpygt51jumxd" path="res://Background/parallaxForest/last_layer.png" id="19_8p0w0"]
 [ext_resource type="AudioStream" uid="uid://bk3e4xwwep08b" path="res://music/levels/level1/magic-forest-318165.mp3" id="19_pnlkg"]
+[ext_resource type="AudioStream" uid="uid://3uq8beakrmit" path="res://music/buttons/pausedSound.mp3" id="19_vqfv1"]
 [ext_resource type="Texture2D" uid="uid://d337bnxe4u3eq" path="res://Background/parallaxForest/background_layer_1.png" id="20_qekcd"]
 [ext_resource type="Texture2D" uid="uid://bb0lhnd2b7rkg" path="res://Background/parallaxForest/background_layer_2.png" id="21_squt7"]
 [ext_resource type="Texture2D" uid="uid://crabyrqon7km5" path="res://Background/background_layer_2.png" id="22_fmv8p"]
@@ -4195,6 +4198,24 @@ offset_bottom = 81.0
 texture = ExtResource("16_3ac7n")
 stretch_mode = 1
 
+[node name="popUpPausa" parent="HUD" instance=ExtResource("17_k68vh")]
+position = Vector2(168, 125)
+
+[node name="PauseButton" type="Button" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -97.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "PAUSA"
+script = ExtResource("18_bw7nw")
+
+[node name="pauseSound" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource("19_vqfv1")
+
 [node name="health" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_v8lwr")
 format = 2
@@ -4414,3 +4435,5 @@ texture = ExtResource("23_m6n3j")
 position = Vector2(3840, 0)
 scale = Vector2(6, 6)
 texture = ExtResource("23_m6n3j")
+
+[connection signal="pressed" from="HUD/PauseButton" to="HUD/PauseButton" method="_on_pressed"]

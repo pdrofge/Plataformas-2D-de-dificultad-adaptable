@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 
+func _ready() -> void:
+	$popUpPausa.visible = false
 
 func loadLifes():
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://dxoyehq8n6ln1"]
+[gd_scene load_steps=74 format=3 uid="uid://dxoyehq8n6ln1"]
 
 [ext_resource type="PackedScene" uid="uid://b2vig01w1i4ia" path="res://Scenes/main_character.tscn" id="1_nprxb"]
 [ext_resource type="Texture2D" uid="uid://dbxdj1dx6bbf8" path="res://Terrain/Terrain (16x16).png" id="2_wesnw"]
@@ -12,7 +12,10 @@
 [ext_resource type="Script" path="res://Scenes/levels/levels/hud.gd" id="10_shexl"]
 [ext_resource type="Texture2D" uid="uid://bqobdxfqugdys" path="res://Menu/HUD/hud_heartFull.png" id="11_caais"]
 [ext_resource type="Texture2D" uid="uid://dc4vh8a4n0tpf" path="res://Menu/HUD/hud_heartEmpty.png" id="12_4vpsg"]
+[ext_resource type="PackedScene" uid="uid://b3vmuu76helpi" path="res://Scenes/popups/pop_up_pausa.tscn" id="12_6bv0o"]
+[ext_resource type="Script" path="res://Scenes/levels/levels/button.gd" id="13_c0smm"]
 [ext_resource type="Texture2D" uid="uid://d2tfr40apyhvh" path="res://Terrain/tilemap.png" id="13_f6ghq"]
+[ext_resource type="AudioStream" uid="uid://3uq8beakrmit" path="res://music/buttons/pausedSound.mp3" id="14_c2v8e"]
 [ext_resource type="Texture2D" uid="uid://chrbj0ktsskaf" path="res://Items/Fruits/Apple.png" id="14_jktq5"]
 [ext_resource type="FontFile" uid="uid://0j813wsbml4w" path="res://fonts/Pixelmax-Regular.otf" id="15_3xocq"]
 [ext_resource type="Script" path="res://Scenes/levels/levels/textosLevel2.gd" id="15_52i10"]
@@ -2545,6 +2548,24 @@ offset_bottom = 81.0
 texture = ExtResource("12_4vpsg")
 stretch_mode = 1
 
+[node name="popUpPausa" parent="HUD" instance=ExtResource("12_6bv0o")]
+position = Vector2(168, 125)
+
+[node name="PauseButton" type="Button" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -97.0
+offset_top = 7.0
+offset_right = -7.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "PAUSA"
+script = ExtResource("13_c0smm")
+
+[node name="pauseSound" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource("14_c2v8e")
+
 [node name="health" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2jl7a")
 format = 2
@@ -2984,3 +3005,5 @@ texture = ExtResource("24_8iaj8")
 position = Vector2(11040, 0)
 scale = Vector2(6, 6)
 texture = ExtResource("24_8iaj8")
+
+[connection signal="pressed" from="HUD/PauseButton" to="HUD/PauseButton" method="_on_pressed"]
