@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxt543jrlj38h"]
+[gd_scene load_steps=16 format=3 uid="uid://cxt543jrlj38h"]
 
 [ext_resource type="FontFile" uid="uid://cv1akwkp83105" path="res://fonts/Bungee-Regular.ttf" id="1_0q5o4"]
 [ext_resource type="Texture2D" uid="uid://c7x4vethhoyyk" path="res://images/360_F_779107802_pA1dmPZ9dhqOSqMW8dkTteZF7Ey3QZAM.jpg" id="1_gc3xv"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://fkmjx7q4h02t" path="res://music/buttons/select_cut.mp3" id="5_fedsi"]
 [ext_resource type="AudioStream" uid="uid://eq38py58xnnt" path="res://music/main_screen/medieval-ambient-236809.mp3" id="5_loyb8"]
 [ext_resource type="Script" path="res://Scenes/screens/load_game_script.gd" id="6_o6u30"]
+[ext_resource type="Script" path="res://Scenes/screens/reset.gd" id="7_h08gm"]
+[ext_resource type="AudioStream" uid="uid://chp1lavcu6nwc" path="res://music/buttons/error.mp3" id="10_xnd3u"]
 
 [sub_resource type="Theme" id="Theme_f1ixu"]
 default_font = ExtResource("1_0q5o4")
@@ -47,10 +49,10 @@ texture = ExtResource("1_gc3xv")
 
 [node name="playButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 71.0
-offset_top = 458.0
-offset_right = 426.0
-offset_bottom = 572.0
+offset_left = 26.0
+offset_top = 341.0
+offset_right = 381.0
+offset_bottom = 455.0
 theme = SubResource("Theme_f1ixu")
 theme_override_colors/font_hover_color = Color(0.207843, 0.592157, 0.784314, 1)
 theme_override_colors/font_color = Color(0.988235, 1, 0.992157, 1)
@@ -58,18 +60,12 @@ text = "NUEVA PARTIDA"
 flat = true
 script = ExtResource("3_0lany")
 
-[node name="SelectSound" type="AudioStreamPlayer" parent="playButton"]
-stream = ExtResource("5_fedsi")
-
-[node name="HoverSound" type="AudioStreamPlayer" parent="playButton"]
-stream = ExtResource("4_wd3ng")
-
 [node name="playButton2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 532.0
-offset_right = 353.0
-offset_bottom = 646.0
+offset_left = 10.0
+offset_top = 418.0
+offset_right = 307.0
+offset_bottom = 532.0
 theme = SubResource("Theme_f1ixu")
 theme_override_colors/font_hover_color = Color(0.207843, 0.592157, 0.784314, 1)
 theme_override_colors/font_color = Color(0.988235, 1, 0.992157, 1)
@@ -77,11 +73,18 @@ text = "CONTINUAR"
 flat = true
 script = ExtResource("6_o6u30")
 
-[node name="SelectSound" type="AudioStreamPlayer" parent="playButton2"]
-stream = ExtResource("5_fedsi")
-
-[node name="HoverSound" type="AudioStreamPlayer" parent="playButton2"]
-stream = ExtResource("4_wd3ng")
+[node name="reset" type="Button" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 498.0
+offset_right = 462.0
+offset_bottom = 612.0
+theme = SubResource("Theme_f1ixu")
+theme_override_colors/font_hover_color = Color(0.207843, 0.592157, 0.784314, 1)
+theme_override_colors/font_color = Color(0.988235, 1, 0.992157, 1)
+text = "ELIMINAR PARTIDA"
+flat = true
+script = ExtResource("7_h08gm")
 
 [node name="ControlesPanel" type="Panel" parent="."]
 layout_mode = 0
@@ -313,7 +316,18 @@ stream = ExtResource("5_loyb8")
 autoplay = true
 parameters/looping = true
 
+[node name="errorSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_xnd3u")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wd3ng")
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fedsi")
+
 [connection signal="mouse_entered" from="playButton" to="playButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="playButton" to="playButton" method="_on_pressed"]
 [connection signal="mouse_entered" from="playButton2" to="playButton2" method="_on_mouse_entered"]
 [connection signal="pressed" from="playButton2" to="playButton2" method="_on_pressed"]
+[connection signal="mouse_entered" from="reset" to="reset" method="_on_mouse_entered"]
+[connection signal="pressed" from="reset" to="reset" method="_on_pressed"]

@@ -9,14 +9,27 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _on_pressed() -> void:
-	if "next_level" in Global.game_data:
+	if Global.game_data["next_level"] != 0:
+		var music = get_parent().get_node("backgroundMusic")
+		music.stop()
+		
+		var sound = get_parent().get_node("SelectSound")
+		if not sound.playing:
+			sound.play()
+
+		await get_tree().create_timer(sound.stream.get_length()).timeout
 		var next_level = Global.game_data["next_level"]
 		match next_level:
-			0:
-				get_tree().change_scene_to_file("res://Scenes/levels/levels/tutorial.tscn")
 			1:
 				get_tree().change_scene_to_file("res://Scenes/levels/levels/level1.tscn")
 			2:
 				get_tree().change_scene_to_file("res://Scenes/levels/levels/level2.tscn")
 	else:
-		print("no progreso guardado")
+		var sound = get_parent().get_node("errorSound")
+		if not sound.playing:
+			sound.play()
+		
+func _on_mouse_entered() -> void:
+	var sound = get_parent().get_node("HoverSound")
+	if not sound.playing:
+		sound.play()

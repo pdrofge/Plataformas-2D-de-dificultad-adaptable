@@ -23,3 +23,11 @@ func load_game() -> void:
 		
 		game_data = save_file.get_var()
 		save_file = null	
+
+func reset_game_data() -> void:
+	game_data = {
+		"current_level" : 0,
+		"next_level" : 0,
+		"scores" : [0, 0, 0]
+	}
+	save_game()

@@ -2,14 +2,14 @@ extends Button
 
 
 func _on_pressed() -> void:
-		
-	var music = get_parent().get_node("backgroundMusic")
-	music.stop()
-		
-	var sound = get_parent().get_node("SelectSound")
+	var sound
+	if Global.game_data["next_level"] == 0:
+		sound = get_parent().get_node("errorSound")
+	else:
+		sound = get_parent().get_node("SelectSound")
 	if not sound.playing:
 		sound.play()
-	get_tree().change_scene_to_file("res://Scenes/levels/levels/tutorial.tscn")
+	Global.reset_game_data()
 
 
 func _on_mouse_entered() -> void:
