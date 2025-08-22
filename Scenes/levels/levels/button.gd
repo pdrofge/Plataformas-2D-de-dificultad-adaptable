@@ -1,18 +1,5 @@
 extends Button
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-
-
 func _on_pressed() -> void:
 	var sound = get_parent().get_node("pauseSound")
 	if not sound.playing:
@@ -20,7 +7,11 @@ func _on_pressed() -> void:
 
 	await get_tree().create_timer(sound.stream.get_length()).timeout
 	
-	var popup = get_parent().get_node("popUpPausa")
+	var popup = get_parent().get_node("popUpPausa") as Panel
+	popup.set_anchors_preset(Control.PRESET_CENTER, true)
+	popup.set_offset(SIDE_LEFT, 0)
+	popup.set_offset(SIDE_TOP, 0)
+	popup.set_offset(SIDE_RIGHT, 0)
+	popup.set_offset(SIDE_BOTTOM, 0)
 	popup.visible = true
 	get_tree().paused = true
-	

@@ -1,9 +1,5 @@
-extends Node2D
+extends Panel
 
-func _ready():
-	center_popup()
-
-func center_popup():
-	var viewport_size = get_viewport().size
-	position = viewport_size / 2
-	
+func _on_resume_button_pressed() -> void:
+	get_tree().paused = false
+	hide()

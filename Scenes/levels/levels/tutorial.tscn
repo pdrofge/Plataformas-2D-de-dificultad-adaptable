@@ -15717,7 +15717,10 @@ text = "PAUSA"
 script = ExtResource("15_mnbu3")
 
 [node name="popUpPausa" parent="HUD" instance=ExtResource("16_hholc")]
-position = Vector2(-24, 44)
+offset_left = -24.0
+offset_top = 44.0
+offset_right = -24.0
+offset_bottom = 44.0
 
 [node name="pauseSound" type="AudioStreamPlayer" parent="HUD"]
 stream = ExtResource("17_nf87b")
