@@ -22,7 +22,7 @@ Global="*res://GLOBAL.gd"
 
 [display]
 
-window/stretch/aspect="expand"
+window/stretch/aspect="ignore"
 
 [dotnet]
 
