@@ -2549,7 +2549,10 @@ texture = ExtResource("12_4vpsg")
 stretch_mode = 1
 
 [node name="popUpPausa" parent="HUD" instance=ExtResource("12_6bv0o")]
-position = Vector2(168, 125)
+offset_left = 168.0
+offset_top = 125.0
+offset_right = 568.0
+offset_bottom = 425.0
 
 [node name="PauseButton" type="Button" parent="HUD"]
 anchors_preset = 1

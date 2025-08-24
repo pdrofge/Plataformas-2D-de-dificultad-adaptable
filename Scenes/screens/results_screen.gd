@@ -7,42 +7,41 @@ var path_selected = GameManager.path_selected
 func _ready():
 	if path_selected == "":
 		if lifes == max_lifes:
-			$imagenResultados.texture = load("res://images/results/a_mark.png")
+			$imagenResultados.texture = GameManager.mark_textures["A"]
 			$mark.text = "A"
 		elif lifes == 1:
-			$imagenResultados.texture = load("res://images/results/c_mark.png")
+			$imagenResultados.texture = GameManager.mark_textures["C"]
 			$mark.text = "C"
 		else:
-			$imagenResultados.texture = load("res://images/results/b_mark.png")
+			$imagenResultados.texture = GameManager.mark_textures["B"]
 			$mark.text = "B"
 		$pathResult.text = "-"
 	else:
 		$pathResult.text = path_selected
 		if path_selected == "A":
-			if lifes == max_lifes || lifes == max_lifes - 1:
-				$imagenResultados.texture = load("res://images/results/a_mark.png")
+			if lifes == max_lifes or lifes == max_lifes - 1:
+				$imagenResultados.texture = GameManager.mark_textures["A"]
 				$mark.text = "A"
 			else:
-				$imagenResultados.texture = load("res://images/results/b_mark.png")
+				$imagenResultados.texture = GameManager.mark_textures["B"]
 				$mark.text = "B"
 		else:
-				if lifes == max_lifes || lifes == max_lifes - 1:
-					$imagenResultados.texture = load("res://images/results/b_mark.png")
-					$mark.text = "B"
-				else:
-					$imagenResultados.texture = load("res://images/results/c_mark.png")
-					$mark.text = "C"
+			if lifes == max_lifes or lifes == max_lifes - 1:
+				$imagenResultados.texture = GameManager.mark_textures["B"]
+				$mark.text = "B"
+			else:
+				$imagenResultados.texture = GameManager.mark_textures["C"]
+				$mark.text = "C"
 			
-	
 	$lifesResult.text = str(lifes)
 	
-	if $mark.text == "A":
-		$music.stream = load("res://music/calification/a_mark.mp3")
-		GameManager.result = 10
-	elif $mark.text == "B":
-		$music.stream = load("res://music/calification/b_mark.mp3")
-		GameManager.result = 5
-	else:
-		$music.stream = load("res://music/calification/c_mark.mp3")
-		GameManager.result = 0
+	# Música precargada
+	var grade = $mark.text
+	$music.stream = GameManager.mark_music[grade]
+	
+	match grade:
+		"A": GameManager.result = 10
+		"B": GameManager.result = 5
+		_:  GameManager.result = 0
+		
 	$music.play()

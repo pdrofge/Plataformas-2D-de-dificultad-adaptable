@@ -57,17 +57,16 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	if level_finished:
-		print(GameManager.path_selected)
+		
 		velocity = Vector2.ZERO
 		move_and_slide()
-		$animaciones.play("celebrating")
-		var finish_sound = get_node("sounds/course_clear")
-		if not finish_sound.playing and not course_clear_played:
-			finish_sound.play()
-			course_clear_played = true
-
-		return	
-	
+		#$animaciones.play("celebrating")
+		return
+		
+		
+		 
+		
+		
 	if $FLOOR.get_collider():
 		var collider = $FLOOR.get_collider().name
 		if collider == "health":

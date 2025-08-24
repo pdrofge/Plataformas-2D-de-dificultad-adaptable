@@ -16,11 +16,11 @@ default_font_size = 40
 
 [sub_resource type="Theme" id="Theme_x6jwf"]
 default_font = ExtResource("6_ve7ng")
-default_font_size = 49
+default_font_size = 60
 
 [sub_resource type="Theme" id="Theme_3habc"]
 default_font = ExtResource("6_ve7ng")
-default_font_size = 22
+default_font_size = 45
 
 [node name="final_screen" type="Control"]
 layout_mode = 3
@@ -80,10 +80,10 @@ text = "RESULTADOS FINALES"
 
 [node name="thanksLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 90.0
-offset_right = 536.0
-offset_bottom = 140.0
+offset_left = 14.0
+offset_top = 113.0
+offset_right = 760.0
+offset_bottom = 196.0
 scale = Vector2(0.75, 0.75)
 theme = SubResource("Theme_x6jwf")
 theme_override_colors/font_color = Color(0.984314, 0.968627, 0.819608, 1)
@@ -92,10 +92,10 @@ text = "¡GRACIAS POR JUGAR!"
 
 [node name="Label5" type="Label" parent="."]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 47.0
-offset_right = 224.0
-offset_bottom = 77.0
+offset_left = 18.0
+offset_top = 56.0
+offset_right = 231.0
+offset_bottom = 86.0
 theme = SubResource("Theme_3habc")
 theme_override_colors/font_color = Color(0.646758, 0.181004, 0, 1)
 text = "PUNTUACIÓN FINAL:"

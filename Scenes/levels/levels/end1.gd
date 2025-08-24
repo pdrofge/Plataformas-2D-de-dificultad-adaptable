@@ -15,11 +15,11 @@ func _physics_process(delta) -> void:
 			GameManager.set_lifes(player.lifes, player.max_lifes)
 			GameManager.set_last_scene(get_tree().current_scene.scene_file_path)
 			var tree = get_tree()
-			var temp = player.get_node("course_clear_time")
-			temp.start()
-			var finish_sound = player.get_node("sounds/course_clear")
+			#var temp = player.get_node("course_clear_time")
+			#temp.start()
+			#var finish_sound = player.get_node("sounds/course_clear")
 			player.level_finished = true
 
 			# Esperar la duración del sonido
-			await get_tree().create_timer(finish_sound.stream.get_length()).timeout
+			#await get_tree().create_timer(finish_sound.stream.get_length()).timeout
 			tree.change_scene_to_file("res://Scenes/screens/results_screen.tscn")
