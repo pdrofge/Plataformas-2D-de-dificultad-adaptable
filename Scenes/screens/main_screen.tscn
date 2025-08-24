@@ -96,9 +96,9 @@ script = ExtResource("7_h08gm")
 [node name="ControlesPanel" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 29.0
-offset_top = 590.0
+offset_top = 593.0
 offset_right = 499.0
-offset_bottom = 874.0
+offset_bottom = 877.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xnn0l")
 
 [node name="Label" type="Label" parent="ControlesPanel"]
