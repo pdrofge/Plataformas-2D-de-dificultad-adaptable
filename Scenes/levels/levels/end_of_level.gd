@@ -26,4 +26,8 @@ func _physics_process(delta) -> void:
 			#var finish_sound = player.get_node("sounds/course_clear")
 			#finish_sound.play()
 			#await get_tree().create_timer(finish_sound.stream.get_length()).timeout
+			#var sound = get_parent().get_node("finish")
+			#sound.play()
+			# Esperar la duración del sonido
+			#await get_tree().create_timer(sound.stream.get_length()).timeout
 			tree.change_scene_to_packed(GameManager.results_scene)

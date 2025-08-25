@@ -19,7 +19,8 @@ func _physics_process(delta) -> void:
 			#temp.start()
 			#var finish_sound = player.get_node("sounds/course_clear")
 			player.level_finished = true
-
+			#var sound = get_parent().get_node("finish")
+			#sound.play()
 			# Esperar la duración del sonido
-			#await get_tree().create_timer(finish_sound.stream.get_length()).timeout
+			#await get_tree().create_timer(sound.stream.get_length()).timeout
 			tree.change_scene_to_file("res://Scenes/screens/results_screen.tscn")

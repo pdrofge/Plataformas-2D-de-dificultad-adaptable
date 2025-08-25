@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://bpp4prwymuga2"]
+[gd_scene load_steps=97 format=3 uid="uid://bpp4prwymuga2"]
 
 [ext_resource type="Texture2D" uid="uid://dbxdj1dx6bbf8" path="res://Terrain/Terrain (16x16).png" id="1_d6575"]
 [ext_resource type="Texture2D" uid="uid://dblne1xrvcfhx" path="res://Background/cave/layers/last_layer.png" id="1_g717x"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cvfwu4tud4bl6" path="res://Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="17_on4v4"]
 [ext_resource type="Texture2D" uid="uid://d2tfr40apyhvh" path="res://Terrain/tilemap.png" id="18_jhy4j"]
 [ext_resource type="AudioStream" uid="uid://d1byxqivgqlbf" path="res://music/levels/tutorial/tutorial.mp3" id="20_iv3vs"]
+[ext_resource type="AudioStream" uid="uid://fkmjx7q4h02t" path="res://music/buttons/select_cut.mp3" id="24_erdns"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7px0f"]
 texture = ExtResource("18_jhy4j")
@@ -15754,5 +15755,8 @@ stream = ExtResource("20_iv3vs")
 volume_db = -5.442
 autoplay = true
 parameters/looping = true
+
+[node name="finish" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_erdns")
 
 [connection signal="pressed" from="HUD/PauseButton" to="HUD/PauseButton" method="_on_pressed"]

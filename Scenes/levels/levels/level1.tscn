@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://ckl7l3o3so7wv"]
+[gd_scene load_steps=93 format=3 uid="uid://ckl7l3o3so7wv"]
 
 [ext_resource type="Texture2D" uid="uid://cpr1evvc1c7t0" path="res://Traps/Spikes/Idle.png" id="1_1uymw"]
 [ext_resource type="PackedScene" uid="uid://o2y42fm5ilgh" path="res://Scenes/enviroment/moving_platform2.tscn" id="1_w1x34"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://bb0lhnd2b7rkg" path="res://Background/parallaxForest/background_layer_2.png" id="21_squt7"]
 [ext_resource type="Texture2D" uid="uid://crabyrqon7km5" path="res://Background/background_layer_2.png" id="22_fmv8p"]
 [ext_resource type="Texture2D" uid="uid://dsub1667goc7b" path="res://Background/parallaxForest/background_layer_3.png" id="23_m6n3j"]
+[ext_resource type="AudioStream" uid="uid://fkmjx7q4h02t" path="res://music/buttons/select_cut.mp3" id="28_fen73"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e4tgi"]
 texture = ExtResource("1_1uymw")
@@ -4438,5 +4439,8 @@ texture = ExtResource("23_m6n3j")
 position = Vector2(3840, 0)
 scale = Vector2(6, 6)
 texture = ExtResource("23_m6n3j")
+
+[node name="finish" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_fen73")
 
 [connection signal="pressed" from="HUD/PauseButton" to="HUD/PauseButton" method="_on_pressed"]

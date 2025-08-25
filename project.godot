@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://GameManager.gd"
 Global="*res://GLOBAL.gd"
+Trans="*res://trans.tscn"
 
 [display]
 
