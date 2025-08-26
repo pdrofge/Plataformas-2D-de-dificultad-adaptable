@@ -30,4 +30,5 @@ func _physics_process(delta) -> void:
 			#sound.play()
 			# Esperar la duración del sonido
 			#await get_tree().create_timer(sound.stream.get_length()).timeout
-			tree.change_scene_to_packed(GameManager.results_scene)
+			Trans.change_scene("res://Scenes/screens/results_screen.tscn")
+			#tree.change_scene_to_packed(GameManager.results_scene)

@@ -34,7 +34,10 @@ var checkpoint_manager
 var initial_pos
 
 func _ready():
+	$Camera2D.make_current()
 	
+		
+		
 	checkpoint_manager = get_parent().get_node("CheckpointManager")
 	initial_pos = position
 	var hud  = get_tree().get_current_scene().find_child("HUD", true, false)
@@ -59,8 +62,9 @@ func _physics_process(delta: float) -> void:
 	if level_finished:
 		
 		velocity = Vector2.ZERO
-		move_and_slide()
-		#$animaciones.play("celebrating")
+		allow_animation = false
+		$animaciones.play("idle")  # Forzamos animación quieta
+		move_and_slide()  # evita warnings por no mover
 		return
 		
 		
@@ -371,6 +375,7 @@ func checkLifes():
 	if lifes == 0:
 		GameManager.set_last_scene(get_tree().current_scene.scene_file_path)
 		get_tree().change_scene_to_file("res://Scenes/screens/game_over_menu.tscn")	
+		
 	
 	#position = checkpoint_manager.last_location
 	#damage_animation = false

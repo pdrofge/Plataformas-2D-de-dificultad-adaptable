@@ -14,28 +14,36 @@ func _on_pressed() -> void:
 			sound.play()
 
 		await get_tree().create_timer(sound.stream.get_length()).timeout
-		var this_level = GameManager.get_last_scene()
-		if this_level == "res://Scenes/levels/levels/tutorial.tscn":
+		#var this_level = GameManager.get_last_scene()
+		var next = Global.game_data["next_level"]
+		#if this_level == "res://Scenes/levels/levels/tutorial.tscn":
+		if next == 0:
 			var current_level = 0
+			#Global.game_data["current_level"] = current_level
 			Global.game_data["next_level"] = 1
 			Global.game_data["scores"][current_level] = GameManager.result
 			Global.save_game()
 			print("Datos guardados en Global:", Global.game_data)
-			get_tree().change_scene_to_file("res://Scenes/levels/levels/level1.tscn")
-		elif this_level == "res://Scenes/levels/levels/level1.tscn":
+			#get_tree().change_scene_to_file("res://Scenes/levels/levels/level1.tscn")
+			Trans.change_scene("res://Scenes/levels/levels/level1.tscn")
+		elif next == 1:
 			var current_level = 1
+			#Global.game_data["current_level"] = current_level
 			Global.game_data["next_level"] = 2
 			Global.game_data["scores"][current_level] = GameManager.result
 			Global.save_game()
 			print("Datos guardados en Global:", Global.game_data)
-			get_tree().change_scene_to_file("res://Scenes/levels/levels/level2.tscn")
-		elif this_level == "res://Scenes/levels/levels/level2.tscn":
+			#get_tree().change_scene_to_file("res://Scenes/levels/levels/level2.tscn")
+			Trans.change_scene("res://Scenes/levels/levels/level2.tscn")
+		elif next == 2:
 			var current_level = 2
+			#Global.game_data["current_level"] = current_level
 			Global.game_data["next_level"] = 2
 			Global.game_data["scores"][current_level] = GameManager.result
 			Global.save_game()
 			print("Datos guardados en Global:", Global.game_data)
-			get_tree().change_scene_to_file("res://Scenes/screens/final_screen.tscn")
+			#get_tree().change_scene_to_file("res://Scenes/screens/final_screen.tscn")
+			Trans.change_scene("res://Scenes/screens/final_screen.tscn")
 
 
 func _on_mouse_entered() -> void:

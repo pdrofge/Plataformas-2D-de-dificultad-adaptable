@@ -102,10 +102,10 @@ text = "PUNTUACIÓN FINAL:"
 
 [node name="mark" type="Label" parent="."]
 layout_mode = 0
-offset_left = 235.0
-offset_top = 53.0
-offset_right = 491.0
-offset_bottom = 83.0
+offset_left = 457.0
+offset_top = 71.0
+offset_right = 713.0
+offset_bottom = 117.0
 theme = SubResource("Theme_3habc")
 theme_override_colors/font_color = Color(0.647059, 0.180392, 0, 1)
 

@@ -21,9 +21,9 @@ func _on_pressed() -> void:
 		var next_level = Global.game_data["next_level"]
 		match next_level:
 			1:
-				get_tree().change_scene_to_file("res://Scenes/levels/levels/level1.tscn")
+				Trans.change_scene("res://Scenes/levels/levels/level1.tscn")
 			2:
-				get_tree().change_scene_to_file("res://Scenes/levels/levels/level2.tscn")
+				Trans.change_scene("res://Scenes/levels/levels/level2.tscn")
 	else:
 		var sound = get_parent().get_node("errorSound")
 		if not sound.playing:

@@ -11,8 +11,8 @@ func _on_pressed() -> void:
 			sound.play()
 
 		await get_tree().create_timer(sound.stream.get_length()).timeout
-		get_tree().change_scene_to_file(GameManager.get_last_scene())
-		
+		#get_tree().change_scene_to_file(GameManager.get_last_scene())
+		Trans.change_scene(GameManager.get_last_scene())
 		
 	
 
