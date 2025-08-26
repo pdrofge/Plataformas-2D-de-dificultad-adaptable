@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 		var collider = $FLOOR.get_collider().name
 		if collider == "health":
 			_changeLifes(max_lifes - lifes)
-		elif collider == "spike"  && $damage_cooldown.is_stopped(): #&& lifes == 3 BORRARLO tras probar que funciona
+		elif collider == "spike"  && $damage_cooldown.is_stopped(): 
 		#	var damage_sound = get_node("sounds/taking_damage")
 		#	if not damage_sound.playing and lifes > 1:
 		#		damage_sound.play()
@@ -160,6 +160,7 @@ func _physics_process(delta: float) -> void:
 	if sliding_end:
 		velocity.x = 0
 		sliding_end = false
+		
 	else:
 		direction = Input.get_axis("ui_left", "ui_right")
 
@@ -218,6 +219,7 @@ func _physics_process(delta: float) -> void:
 
 	if down and velocity.x != 0 and $sliding_time.is_stopped():
 		$sliding_time.start()
+		
 
 	move_and_slide()
 	if not hitting1 and not hitting2 and not hitting_wr: 
@@ -348,9 +350,10 @@ func _on_dash_time_timeout() -> void:
 	
 	
 func _changeLifes(number: int):
-	$damage_cooldown.start()
+	
 	$damage_anim_time.start()
 	if number < 0:
+		$damage_cooldown.start()
 		var restar = number * -1
 		lifes = lifes - restar
 		var damage_sound = get_node("sounds/taking_damage")

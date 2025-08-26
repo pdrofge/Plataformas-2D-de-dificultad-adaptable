@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://b2vig01w1i4ia"]
+[gd_scene load_steps=93 format=3 uid="uid://b2vig01w1i4ia"]
 
 [ext_resource type="Texture2D" uid="uid://ps4gpsapklbd" path="res://Main Characters/generic_char_v0.2/png/blue/char_blue_1.png" id="1_ar5rw"]
 [ext_resource type="Script" path="res://Scenes/mc.gd" id="1_o78o0"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b3jengy7t5vy6" path="res://music/main_character/breaking.mp3" id="9_012w5"]
 [ext_resource type="AudioStream" uid="uid://wecb7upmrc04" path="res://music/main_character/course_clear.mp3" id="10_na5vk"]
 [ext_resource type="AudioStream" uid="uid://5ig1ukn8xik5" path="res://music/main_character/healing_sound.mp3" id="11_wxhua"]
+[ext_resource type="AudioStream" uid="uid://c16vossuhgoeh" path="res://music/main_character/sliding.mp3" id="12_5wags"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_koeko"]
 atlas = ExtResource("1_ar5rw")
@@ -718,6 +719,9 @@ stream = ExtResource("10_na5vk")
 
 [node name="healing" type="AudioStreamPlayer" parent="sounds"]
 stream = ExtResource("11_wxhua")
+
+[node name="sliding_sound" type="AudioStreamPlayer" parent="sounds"]
+stream = ExtResource("12_5wags")
 
 [node name="damage_cooldown" type="Timer" parent="."]
 wait_time = 1.3
