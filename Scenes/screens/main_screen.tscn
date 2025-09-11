@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cxt543jrlj38h"]
+[gd_scene load_steps=28 format=3 uid="uid://cxt543jrlj38h"]
 
 [ext_resource type="FontFile" uid="uid://cv1akwkp83105" path="res://fonts/Bungee-Regular.ttf" id="1_0q5o4"]
 [ext_resource type="Texture2D" uid="uid://c7x4vethhoyyk" path="res://images/360_F_779107802_pA1dmPZ9dhqOSqMW8dkTteZF7Ey3QZAM.jpg" id="1_gc3xv"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://nd3dsf24a3wm" path="res://images/controls/attack_ps.png" id="12_unknd"]
 [ext_resource type="Texture2D" uid="uid://b0ayqkfafrisj" path="res://images/controls/pad.png" id="13_sh0ad"]
 [ext_resource type="Texture2D" uid="uid://j7g4vkweffbj" path="res://images/controls/joystick.png" id="14_e4p1r"]
+[ext_resource type="FontFile" uid="uid://nllk3g0qlkkk" path="res://fonts/Pixelout.ttf" id="20_ftose"]
 
 [sub_resource type="Theme" id="Theme_5thc2"]
 
@@ -42,6 +43,10 @@ bg_color = Color(0.99, 1, 0.992333, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xvsaf"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_stjow"]
+default_font = ExtResource("20_ftose")
+default_font_size = 150
 
 [node name="Main_screen" type="Control"]
 layout_mode = 3
@@ -630,6 +635,18 @@ stream = ExtResource("4_wd3ng")
 
 [node name="SelectSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_fedsi")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 795.0
+offset_top = 18.0
+offset_right = 1915.0
+offset_bottom = 169.0
+theme = SubResource("Theme_stjow")
+theme_override_colors/font_color = Color(0.6, 0.048, 0.0571999, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "PATH OF VALOR"
 
 [connection signal="mouse_entered" from="playButton" to="playButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="playButton" to="playButton" method="_on_pressed"]
