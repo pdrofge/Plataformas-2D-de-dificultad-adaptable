@@ -403,10 +403,10 @@ text = "⭠
 
 [node name="ControlesPanelMando" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 941.0
-offset_right = 500.0
-offset_bottom = 1268.0
+offset_left = 542.0
+offset_top = 593.0
+offset_right = 1012.0
+offset_bottom = 920.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xnn0l")
 
 [node name="Label" type="Label" parent="ControlesPanelMando"]
