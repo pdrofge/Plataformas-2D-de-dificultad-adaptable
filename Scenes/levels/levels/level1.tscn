@@ -4220,6 +4220,11 @@ script = ExtResource("18_bw7nw")
 [node name="pauseSound" type="AudioStreamPlayer" parent="HUD"]
 stream = ExtResource("19_vqfv1")
 
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_pnlkg")
+autoplay = true
+parameters/looping = true
+
 [node name="health" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_v8lwr")
 format = 2
@@ -4229,6 +4234,79 @@ layer_0/tile_data = PackedInt32Array(2031931, 458754, 8, 2031932, 458754, 8, 203
 tile_set = SubResource("TileSet_mig2s")
 format = 2
 layer_0/tile_data = PackedInt32Array(2031917, 1179648, 9, 2097453, 1179648, 10, 2031918, 1245184, 9, 2097454, 1245184, 10)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="last_layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1440, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/last_layer"]
+scale = Vector2(10, 10)
+texture = ExtResource("19_8p0w0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/last_layer"]
+position = Vector2(5901, -4)
+scale = Vector2(10, 10)
+texture = ExtResource("19_8p0w0")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/last_layer"]
+position = Vector2(9428, -6)
+scale = Vector2(10, 10)
+texture = ExtResource("19_8p0w0")
+
+[node name="back" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(5760, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/back"]
+scale = Vector2(6, 6)
+texture = ExtResource("20_qekcd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/back"]
+position = Vector2(1920, 0)
+scale = Vector2(6, 6)
+texture = ExtResource("20_qekcd")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/back"]
+position = Vector2(3840, 0)
+scale = Vector2(6, 6)
+texture = ExtResource("20_qekcd")
+
+[node name="middle" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(5760, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/middle"]
+scale = Vector2(6, 6)
+texture = ExtResource("21_squt7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/middle"]
+position = Vector2(1920, 0)
+scale = Vector2(6, 6)
+texture = ExtResource("21_squt7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/middle"]
+position = Vector2(3840, 0)
+scale = Vector2(6, 6)
+texture = ExtResource("22_fmv8p")
+
+[node name="middle2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(5760, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/middle2"]
+scale = Vector2(6, 6)
+texture = ExtResource("23_m6n3j")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/middle2"]
+position = Vector2(1920, 0)
+scale = Vector2(6, 6)
+texture = ExtResource("23_m6n3j")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/middle2"]
+position = Vector2(3840, 0)
+scale = Vector2(6, 6)
+texture = ExtResource("23_m6n3j")
 
 [node name="tutorialcaminos" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_mig2s")
@@ -4361,84 +4439,6 @@ tile_set = SubResource("TileSet_uf4vk")
 format = 2
 layer_0/tile_data = PackedInt32Array(1180219, 851969, 4, 1180220, 851969, 4, 1180218, 851969, 4, 1049146, 851968, 6, 1114682, 851968, 7)
 script = ExtResource("18_7gjmd")
-
-[node name="Ambience" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_pnlkg")
-autoplay = true
-parameters/looping = true
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="last_layer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1440, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/last_layer"]
-scale = Vector2(10, 10)
-texture = ExtResource("19_8p0w0")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/last_layer"]
-position = Vector2(5901, -4)
-scale = Vector2(10, 10)
-texture = ExtResource("19_8p0w0")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/last_layer"]
-position = Vector2(9428, -6)
-scale = Vector2(10, 10)
-texture = ExtResource("19_8p0w0")
-
-[node name="back" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 1)
-motion_mirroring = Vector2(5760, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/back"]
-scale = Vector2(6, 6)
-texture = ExtResource("20_qekcd")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/back"]
-position = Vector2(1920, 0)
-scale = Vector2(6, 6)
-texture = ExtResource("20_qekcd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/back"]
-position = Vector2(3840, 0)
-scale = Vector2(6, 6)
-texture = ExtResource("20_qekcd")
-
-[node name="middle" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 1)
-motion_mirroring = Vector2(5760, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/middle"]
-scale = Vector2(6, 6)
-texture = ExtResource("21_squt7")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/middle"]
-position = Vector2(1920, 0)
-scale = Vector2(6, 6)
-texture = ExtResource("21_squt7")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/middle"]
-position = Vector2(3840, 0)
-scale = Vector2(6, 6)
-texture = ExtResource("22_fmv8p")
-
-[node name="middle2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.8, 1)
-motion_mirroring = Vector2(5760, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/middle2"]
-scale = Vector2(6, 6)
-texture = ExtResource("23_m6n3j")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/middle2"]
-position = Vector2(1920, 0)
-scale = Vector2(6, 6)
-texture = ExtResource("23_m6n3j")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/middle2"]
-position = Vector2(3840, 0)
-scale = Vector2(6, 6)
-texture = ExtResource("23_m6n3j")
 
 [node name="finish" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("28_fen73")

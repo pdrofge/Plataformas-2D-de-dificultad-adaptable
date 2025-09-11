@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cxt543jrlj38h"]
+[gd_scene load_steps=26 format=3 uid="uid://cxt543jrlj38h"]
 
 [ext_resource type="FontFile" uid="uid://cv1akwkp83105" path="res://fonts/Bungee-Regular.ttf" id="1_0q5o4"]
 [ext_resource type="Texture2D" uid="uid://c7x4vethhoyyk" path="res://images/360_F_779107802_pA1dmPZ9dhqOSqMW8dkTteZF7Ey3QZAM.jpg" id="1_gc3xv"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://wjgl0rwwmg6i" path="res://music/buttons/hover_cut.mp3" id="4_wd3ng"]
 [ext_resource type="AudioStream" uid="uid://fkmjx7q4h02t" path="res://music/buttons/select_cut.mp3" id="5_fedsi"]
 [ext_resource type="AudioStream" uid="uid://eq38py58xnnt" path="res://music/main_screen/medieval-ambient-236809.mp3" id="5_loyb8"]
+[ext_resource type="Script" path="res://Scenes/screens/exit.gd" id="6_8a06i"]
 [ext_resource type="Script" path="res://Scenes/screens/load_game_script.gd" id="6_o6u30"]
 [ext_resource type="Texture2D" uid="uid://dlse8ok5kuagw" path="res://images/controls/jump_ps.png" id="7_14yof"]
 [ext_resource type="Script" path="res://Scenes/screens/reset.gd" id="7_h08gm"]
@@ -64,10 +65,10 @@ stretch_mode = 6
 
 [node name="playButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 341.0
-offset_right = 381.0
-offset_bottom = 455.0
+offset_left = 15.0
+offset_top = 203.0
+offset_right = 370.0
+offset_bottom = 317.0
 theme = SubResource("Theme_f1ixu")
 theme_override_colors/font_hover_color = Color(0.207843, 0.592157, 0.784314, 1)
 theme_override_colors/font_color = Color(0.988235, 1, 0.992157, 1)
@@ -77,10 +78,9 @@ script = ExtResource("3_0lany")
 
 [node name="playButton2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 418.0
-offset_right = 307.0
-offset_bottom = 532.0
+offset_top = 286.0
+offset_right = 297.0
+offset_bottom = 400.0
 theme = SubResource("Theme_f1ixu")
 theme_override_colors/font_hover_color = Color(0.207843, 0.592157, 0.784314, 1)
 theme_override_colors/font_color = Color(0.988235, 1, 0.992157, 1)
@@ -90,16 +90,29 @@ script = ExtResource("6_o6u30")
 
 [node name="reset" type="Button" parent="."]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 498.0
-offset_right = 462.0
-offset_bottom = 612.0
+offset_left = 16.0
+offset_top = 377.0
+offset_right = 452.0
+offset_bottom = 491.0
 theme = SubResource("Theme_f1ixu")
 theme_override_colors/font_hover_color = Color(0.207843, 0.592157, 0.784314, 1)
 theme_override_colors/font_color = Color(0.988235, 1, 0.992157, 1)
 text = "ELIMINAR PARTIDA"
 flat = true
 script = ExtResource("7_h08gm")
+
+[node name="exit" type="Button" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 463.0
+offset_right = 200.0
+offset_bottom = 577.0
+theme = SubResource("Theme_f1ixu")
+theme_override_colors/font_hover_color = Color(0.207843, 0.592157, 0.784314, 1)
+theme_override_colors/font_color = Color(0.988235, 1, 0.992157, 1)
+text = "SALIR"
+flat = true
+script = ExtResource("6_8a06i")
 
 [node name="ControlesPanelTeclado" type="Panel" parent="."]
 layout_mode = 0
@@ -624,3 +637,5 @@ stream = ExtResource("5_fedsi")
 [connection signal="pressed" from="playButton2" to="playButton2" method="_on_pressed"]
 [connection signal="mouse_entered" from="reset" to="reset" method="_on_mouse_entered"]
 [connection signal="pressed" from="reset" to="reset" method="_on_pressed"]
+[connection signal="mouse_entered" from="exit" to="exit" method="_on_mouse_entered"]
+[connection signal="pressed" from="exit" to="exit" method="_on_pressed"]

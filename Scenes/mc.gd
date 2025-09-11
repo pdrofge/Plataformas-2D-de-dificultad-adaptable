@@ -90,16 +90,7 @@ func _physics_process(delta: float) -> void:
 		count_dashes = 0  # Resetea el dash al tocar el suelo
 		
 		# Detección de golpe
-		"""
-		if Input.is_action_just_pressed("Enter") and not hitting1 and not hitting2 and not down and velocity.x == 0:
-			hitting1 = true
-			hitting2 = false
-			if $animaciones.animation != "hit1":
-				$animaciones.play("hit1")
-
-		elif Input.is_action_just_pressed("Enter") and hitting1 and not hitting2:
-			hitting2 = true  # Marca que se activará "hit2"
-		"""
+		
 		if Input.is_action_just_pressed("Enter") and not down:
 			if velocity.x == 0 and not hitting1 and not hitting2 and not hitting_wr:
 				hitting1 = true
@@ -312,28 +303,7 @@ func animation_finished() -> void:
 			hitting2 = false
 			hitting_wr = false
 			allow_animation = true
-
-	
-	
-	
-	"""
-	var current_animation = $animaciones.animation  # Obtiene la animación actual
-	
-	if current_animation == "hit1":
-		if hitting2: 
-			$animaciones.play("hit2")  # Si se presionó Enter en medio de "hit1", activa "hit2"
-		hitting1 = false  # Libera la variable al terminar
-	
-	elif current_animation == "hit2":
-		hitting1 = false
-		hitting2 = false  # Reseteamos después de "hit2"
-	
-	if current_animation == "hit_while_running":
-		hitting_wr = false
-	
-	allow_animation = true  # Permitimos otras animaciones después del combo
-
-"""
+			
 
 func _on_ct_timeout() -> void:
 	pass
@@ -351,8 +321,9 @@ func _on_dash_time_timeout() -> void:
 	
 func _changeLifes(number: int):
 	
-	$damage_anim_time.start()
+	#$damage_anim_time.start()
 	if number < 0:
+		$damage_anim_time.start()
 		$damage_cooldown.start()
 		var restar = number * -1
 		lifes = lifes - restar

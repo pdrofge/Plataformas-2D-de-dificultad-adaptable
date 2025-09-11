@@ -19,17 +19,17 @@ func _ready():
 	else:
 		$pathResult.text = path_selected
 		if path_selected == "A":
-			if lifes == max_lifes or lifes == max_lifes - 1:
+			if lifes == max_lifes or lifes == max_lifes - 1: #quedan 3 o 2 vidas
 				$imagenResultados.texture = GameManager.mark_textures["A"]
-				$mark.text = "A"
-			else:
-				$imagenResultados.texture = GameManager.mark_textures["B"]
+				$mark.text = "A" 
+			else: #queda 1 vida
+				$imagenResultados.texture = GameManager.mark_textures["B"] 
 				$mark.text = "B"
 		else:
-			if lifes == max_lifes or lifes == max_lifes - 1:
+			if lifes == max_lifes or lifes == max_lifes - 1: #quedan 3 o 2 vidas
 				$imagenResultados.texture = GameManager.mark_textures["B"]
 				$mark.text = "B"
-			else:
+			else: #queda 1 vida
 				$imagenResultados.texture = GameManager.mark_textures["C"]
 				$mark.text = "C"
 			
