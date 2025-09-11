@@ -12,7 +12,7 @@ func _on_pressed() -> void:
 		sound.play()
 
 	await get_tree().create_timer(sound.stream.get_length()).timeout
-	#get_tree().change_scene_to_file("res://Scenes/screens/main_screen.tscn")
+	
 	Trans.change_scene("res://Scenes/screens/main_screen.tscn")
 
 func _on_mouse_entered() -> void:

@@ -15,8 +15,7 @@ func _ready():
 
 	if player:
 		floor_ray = player.get_node_or_null("FLOOR") as RayCast2D
-	#if not floor_ray:
-		#print("No se encontró el RayCast2D")
+	
 
 func _process(_delta: float) -> void:
 	if not floor_ray:
@@ -28,6 +27,6 @@ func _process(_delta: float) -> void:
 		if collider and tutorial_texts.has(collider.name):
 			active_text_name = collider.name
 
-	#Mostramos textos que pisamos
+	#Aquí mostramos textos que pisamos
 	for name in tutorial_texts:
 		tutorial_texts[name].visible = (name == active_text_name)

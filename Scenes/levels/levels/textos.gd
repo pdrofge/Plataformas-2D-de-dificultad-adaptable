@@ -24,8 +24,7 @@ func _ready():
 
 	if player:
 		floor_ray = player.get_node_or_null("FLOOR") as RayCast2D
-	#if not floor_ray:
-		#print("No se encontró el RayCast2D")
+	
 
 func _process(_delta: float) -> void:
 	if not floor_ray:

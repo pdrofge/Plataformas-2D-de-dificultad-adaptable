@@ -51,7 +51,7 @@ func _ready():
 	$sliding_time.wait_time = sliding_t
 	
 func _physics_process(delta: float) -> void:
-	#print($HIT3.target_position)
+	
 	#taking damage
 	if is_damaged:
 		velocity = Vector2.ZERO
@@ -76,12 +76,10 @@ func _physics_process(delta: float) -> void:
 		if collider == "health":
 			_changeLifes(max_lifes - lifes)
 		elif collider == "spike"  && $damage_cooldown.is_stopped(): 
-		#	var damage_sound = get_node("sounds/taking_damage")
-		#	if not damage_sound.playing and lifes > 1:
-		#		damage_sound.play()
+			
 			
 			_changeLifes(-1)
-	# Add gravity
+	
 	if is_on_floor():
 		leaved_floor = false
 		allow_animation = true
@@ -134,7 +132,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y = 0  # Mantener suspendido en el aire
 
-	# Handle jump
+	
 	if Input.is_action_just_pressed("ui_accept") and can_jump():
 		if count_jumps == 1:
 			allow_animation = false
@@ -147,7 +145,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y = JUMP_VELOCITY
 
-	# Movement logic
+	
 	if sliding_end:
 		velocity.x = 0
 		sliding_end = false
@@ -321,7 +319,7 @@ func _on_dash_time_timeout() -> void:
 	
 func _changeLifes(number: int):
 	
-	#$damage_anim_time.start()
+	
 	if number < 0:
 		$damage_anim_time.start()
 		$damage_cooldown.start()
@@ -351,7 +349,4 @@ func checkLifes():
 		get_tree().change_scene_to_file("res://Scenes/screens/game_over_menu.tscn")	
 		
 	
-	#position = checkpoint_manager.last_location
-	#damage_animation = false
-	#print("Tienes " + str(lifes) + " vidas")
-	#habría que moverlo al anterior checkpoint en caso de tener 1 o más vidas
+	

@@ -9,7 +9,7 @@ func _on_pressed() -> void:
 	var sound = get_parent().get_node("SelectSound")
 	if not sound.playing:
 		sound.play()
-	#get_tree().change_scene_to_file("res://Scenes/levels/levels/tutorial.tscn")
+	
 	Global.reset_game_data()
 	Trans.change_scene("res://Scenes/levels/levels/tutorial.tscn")
 
